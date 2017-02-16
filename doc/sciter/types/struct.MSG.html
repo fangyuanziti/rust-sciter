@@ -9,10 +9,12 @@
 
     <title>sciter::types::MSG - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'MSG', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,22 +48,34 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1465' class='srclink' href='../../src/sciter/capi/sctypes.rs.html#85-92' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct MSG {
-    pub hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>,
-    pub message: <a class='type' href='../../sciter/types/type.UINT.html' title='sciter::types::UINT'>UINT</a>,
-    pub wParam: <a class='type' href='../../sciter/types/type.WPARAM.html' title='sciter::types::WPARAM'>WPARAM</a>,
-    pub lParam: <a class='type' href='../../sciter/types/type.LPARAM.html' title='sciter::types::LPARAM'>LPARAM</a>,
-    pub time: <a class='type' href='../../sciter/types/type.UINT.html' title='sciter::types::UINT'>UINT</a>,
-    pub pt: <a class='struct' href='../../sciter/types/struct.POINT.html' title='sciter::types::POINT'>POINT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                             <td id='structfield.hwnd'><code>hwnd</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.message'><code>message</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.wParam'><code>wParam</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.lParam'><code>lParam</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.time'><code>time</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.pt'><code>pt</code></td><td></td></tr></table></section>
+               </span><a class='srclink' href='../../src/sciter/capi/sctypes.rs.html#85-92' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct MSG {
+    pub hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a>,
+    pub message: <a class='type' href='../../sciter/types/type.UINT.html' title='type sciter::types::UINT'>UINT</a>,
+    pub wParam: <a class='type' href='../../sciter/types/type.WPARAM.html' title='type sciter::types::WPARAM'>WPARAM</a>,
+    pub lParam: <a class='type' href='../../sciter/types/type.LPARAM.html' title='type sciter::types::LPARAM'>LPARAM</a>,
+    pub time: <a class='type' href='../../sciter/types/type.UINT.html' title='type sciter::types::UINT'>UINT</a>,
+    pub pt: <a class='struct' href='../../sciter/types/struct.POINT.html' title='struct sciter::types::POINT'>POINT</a>,
+}</pre><h2 class='fields'>Fields</h2><span id='structfield.hwnd' class='structfield'>
+                           <span id='hwnd.v' class='invisible'>
+                           <code>hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a></code>
+                           </span></span><span id='structfield.message' class='structfield'>
+                           <span id='message.v' class='invisible'>
+                           <code>message: <a class='type' href='../../sciter/types/type.UINT.html' title='type sciter::types::UINT'>UINT</a></code>
+                           </span></span><span id='structfield.wParam' class='structfield'>
+                           <span id='wParam.v' class='invisible'>
+                           <code>wParam: <a class='type' href='../../sciter/types/type.WPARAM.html' title='type sciter::types::WPARAM'>WPARAM</a></code>
+                           </span></span><span id='structfield.lParam' class='structfield'>
+                           <span id='lParam.v' class='invisible'>
+                           <code>lParam: <a class='type' href='../../sciter/types/type.LPARAM.html' title='type sciter::types::LPARAM'>LPARAM</a></code>
+                           </span></span><span id='structfield.time' class='structfield'>
+                           <span id='time.v' class='invisible'>
+                           <code>time: <a class='type' href='../../sciter/types/type.UINT.html' title='type sciter::types::UINT'>UINT</a></code>
+                           </span></span><span id='structfield.pt' class='structfield'>
+                           <span id='pt.v' class='invisible'>
+                           <code>pt: <a class='struct' href='../../sciter/types/struct.POINT.html' title='struct sciter::types::POINT'>POINT</a></code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -84,6 +98,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -115,11 +131,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

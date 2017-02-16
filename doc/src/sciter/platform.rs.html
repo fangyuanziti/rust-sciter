@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `platform.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\platform.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>platform.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -472,10 +474,18 @@
 <span id="429">429</span>
 <span id="430">430</span>
 <span id="431">431</span>
+<span id="432">432</span>
+<span id="433">433</span>
+<span id="434">434</span>
+<span id="435">435</span>
+<span id="436">436</span>
+<span id="437">437</span>
+<span id="438">438</span>
+<span id="439">439</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Platform-dependent windows support.</span>
 
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
 
 
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>BaseWindow</span> {
@@ -499,8 +509,8 @@
 <span class='kw'>mod</span> <span class='ident'>windows</span> {
 
 	<span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='op'>*</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='kw-2'>*</span>;
 
 
 	<span class='attribute'>#[<span class='ident'>link</span>(<span class='ident'>name</span><span class='op'>=</span><span class='string'>&quot;user32&quot;</span>)]</span>
@@ -545,7 +555,7 @@
 
 	}
 
-	<span class='kw'>impl</span> <span class='ident'>super</span>::<span class='ident'>BaseWindow</span> <span class='kw'>for</span> <span class='ident'>OsWindow</span> {
+	<span class='kw'>impl</span> <span class='kw'>super</span>::<span class='ident'>BaseWindow</span> <span class='kw'>for</span> <span class='ident'>OsWindow</span> {
 
 		<span class='doccomment'>/// Get native window handle.</span>
 		<span class='kw'>fn</span> <span class='ident'>get_hwnd</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
@@ -555,14 +565,14 @@
 		<span class='doccomment'>/// Create a new native window.</span>
 		<span class='kw'>fn</span> <span class='ident'>create</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rect</span>: (<span class='ident'>i32</span>,<span class='ident'>i32</span>,<span class='ident'>i32</span>,<span class='ident'>i32</span>), <span class='ident'>flags</span>: <span class='ident'>UINT</span>, <span class='ident'>parent</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
 
-			<span class='kw'>if</span> (<span class='ident'>flags</span> <span class='kw-2'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_MAIN</span> <span class='kw'>as</span> <span class='ident'>u32</span>) <span class='op'>!=</span> <span class='number'>0</span> {
+			<span class='kw'>if</span> (<span class='ident'>flags</span> <span class='op'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_MAIN</span> <span class='kw'>as</span> <span class='ident'>u32</span>) <span class='op'>!=</span> <span class='number'>0</span> {
 				<span class='ident'>OsWindow</span>::<span class='ident'>init_app</span>();
 			}
 
 			<span class='kw'>let</span> (<span class='ident'>x</span>,<span class='ident'>y</span>,<span class='ident'>w</span>,<span class='ident'>h</span>) <span class='op'>=</span> <span class='ident'>rect</span>;
 			<span class='kw'>let</span> <span class='ident'>rc</span> <span class='op'>=</span> <span class='ident'>RECT</span> { <span class='ident'>left</span>: <span class='ident'>x</span>, <span class='ident'>top</span>: <span class='ident'>y</span>, <span class='ident'>right</span>: <span class='ident'>x</span> <span class='op'>+</span> <span class='ident'>w</span>, <span class='ident'>bottom</span>: <span class='ident'>y</span> <span class='op'>+</span> <span class='ident'>h</span> };
 
-			<span class='kw'>let</span> <span class='ident'>cb</span> <span class='op'>=</span> <span class='number'>0</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>SciterWindowDelegate</span>;
+			<span class='kw'>let</span> <span class='ident'>cb</span> <span class='op'>=</span> <span class='number'>0</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>SciterWindowDelegate</span>;
 			<span class='self'>self</span>.<span class='ident'>flags</span> <span class='op'>=</span> <span class='ident'>flags</span>;
 			<span class='self'>self</span>.<span class='ident'>hwnd</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterCreateWindow</span>)(<span class='ident'>flags</span>, <span class='kw-2'>&amp;</span><span class='ident'>rc</span>, <span class='ident'>cb</span>, <span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>, <span class='ident'>parent</span>);
 			<span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>is_null</span>() {
@@ -629,16 +639,16 @@
 <span class='kw'>mod</span> <span class='ident'>windows</span> {
 
 	<span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='op'>*</span>;
-	<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>BaseWindow</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='kw-2'>*</span>;
+	<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>BaseWindow</span>;
 
 	<span class='kw'>use</span> ::<span class='ident'>std</span>::<span class='ident'>ptr</span>;
 
 	<span class='attribute'>#[<span class='ident'>link</span>(<span class='ident'>name</span><span class='op'>=</span><span class='string'>&quot;gtk-3&quot;</span>)]</span>
 	<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span>
 	{
-		<span class='kw'>fn</span> <span class='ident'>gtk_init</span>(<span class='ident'>argc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>i32</span>, <span class='ident'>argv</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>LPCSTR</span>);
+		<span class='kw'>fn</span> <span class='ident'>gtk_init</span>(<span class='ident'>argc</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>i32</span>, <span class='ident'>argv</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>LPCSTR</span>);
 		<span class='kw'>fn</span> <span class='ident'>gtk_main</span>();
 		<span class='kw'>fn</span> <span class='ident'>gtk_main_quit</span>();
 		<span class='kw'>fn</span> <span class='ident'>gtk_widget_get_toplevel</span>(<span class='ident'>view</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span>;
@@ -663,6 +673,10 @@
 			<span class='ident'>OsWindow</span> { <span class='ident'>hwnd</span>: <span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>HWINDOW</span>, <span class='ident'>flags</span>: <span class='number'>0</span> }
 		}
 
+		<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>OsWindow</span> {
+			<span class='ident'>OsWindow</span> { <span class='ident'>hwnd</span>: <span class='ident'>hwnd</span>, <span class='ident'>flags</span>: <span class='number'>0</span> }
+		}
+
 		<span class='kw'>fn</span> <span class='ident'>init_app</span>() {
 			<span class='kw'>unsafe</span> { <span class='ident'>gtk_init</span>(<span class='ident'>ptr</span>::<span class='ident'>null</span>(), <span class='ident'>ptr</span>::<span class='ident'>null</span>()) };
 		}
@@ -678,7 +692,7 @@
 
 	}
 
-	<span class='kw'>impl</span> <span class='ident'>super</span>::<span class='ident'>BaseWindow</span> <span class='kw'>for</span> <span class='ident'>OsWindow</span> {
+	<span class='kw'>impl</span> <span class='kw'>super</span>::<span class='ident'>BaseWindow</span> <span class='kw'>for</span> <span class='ident'>OsWindow</span> {
 
 		<span class='doccomment'>/// Get native window handle.</span>
 		<span class='kw'>fn</span> <span class='ident'>get_hwnd</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
@@ -688,14 +702,14 @@
 		<span class='doccomment'>/// Create a new native window.</span>
 		<span class='kw'>fn</span> <span class='ident'>create</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rect</span>: (<span class='ident'>i32</span>,<span class='ident'>i32</span>,<span class='ident'>i32</span>,<span class='ident'>i32</span>), <span class='ident'>flags</span>: <span class='ident'>UINT</span>, <span class='ident'>parent</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
 
-			<span class='kw'>if</span> (<span class='ident'>flags</span> <span class='kw-2'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_MAIN</span> <span class='kw'>as</span> <span class='ident'>u32</span>) <span class='op'>!=</span> <span class='number'>0</span> {
+			<span class='kw'>if</span> (<span class='ident'>flags</span> <span class='op'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_MAIN</span> <span class='kw'>as</span> <span class='ident'>u32</span>) <span class='op'>!=</span> <span class='number'>0</span> {
 				<span class='ident'>OsWindow</span>::<span class='ident'>init_app</span>();
 			}
 
 			<span class='kw'>let</span> (<span class='ident'>x</span>,<span class='ident'>y</span>,<span class='ident'>w</span>,<span class='ident'>h</span>) <span class='op'>=</span> <span class='ident'>rect</span>;
 			<span class='kw'>let</span> <span class='ident'>rc</span> <span class='op'>=</span> <span class='ident'>RECT</span> { <span class='ident'>left</span>: <span class='ident'>x</span>, <span class='ident'>top</span>: <span class='ident'>y</span>, <span class='ident'>right</span>: <span class='ident'>x</span> <span class='op'>+</span> <span class='ident'>w</span>, <span class='ident'>bottom</span>: <span class='ident'>y</span> <span class='op'>+</span> <span class='ident'>h</span> };
 
-			<span class='kw'>let</span> <span class='ident'>cb</span> <span class='op'>=</span> <span class='number'>0</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>SciterWindowDelegate</span>;
+			<span class='kw'>let</span> <span class='ident'>cb</span> <span class='op'>=</span> <span class='number'>0</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>SciterWindowDelegate</span>;
 			<span class='self'>self</span>.<span class='ident'>flags</span> <span class='op'>=</span> <span class='ident'>flags</span>;
 			<span class='self'>self</span>.<span class='ident'>hwnd</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterCreateWindow</span>)(<span class='ident'>flags</span>, <span class='kw-2'>&amp;</span><span class='ident'>rc</span>, <span class='ident'>cb</span>, <span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>, <span class='ident'>parent</span>);
 			<span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>is_null</span>() {
@@ -766,9 +780,9 @@
 	<span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>objc_foundation</span>::{<span class='ident'>NSString</span>, <span class='ident'>INSString</span>};
 
 	<span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='op'>*</span>;
-	<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>BaseWindow</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='kw-2'>*</span>;
+	<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>BaseWindow</span>;
 
 	<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OsWindow</span>
 	{
@@ -782,7 +796,11 @@
 			<span class='ident'>OsWindow</span> { <span class='ident'>hwnd</span>: <span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>HWINDOW</span>, <span class='ident'>flags</span>: <span class='number'>0</span>, }
 		}
 
-		<span class='kw'>fn</span> <span class='ident'>get_app</span>() <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> {
+		<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>OsWindow</span> {
+			<span class='ident'>OsWindow</span> { <span class='ident'>hwnd</span>: <span class='ident'>hwnd</span>, <span class='ident'>flags</span>: <span class='number'>0</span> }
+		}
+
+		<span class='kw'>fn</span> <span class='ident'>get_app</span>() <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> {
 			<span class='kw'>let</span> <span class='ident'>cls</span> <span class='op'>=</span> <span class='ident'>Class</span>::<span class='ident'>get</span>(<span class='string'>&quot;NSApplication&quot;</span>).<span class='ident'>unwrap</span>();
 			<span class='kw'>let</span> <span class='ident'>obj</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='macro'>msg_send</span><span class='macro'>!</span>(<span class='ident'>cls</span>, <span class='ident'>sharedApplication</span>) };
 			<span class='kw'>return</span> <span class='ident'>obj</span>;
@@ -792,23 +810,23 @@
 			<span class='kw'>let</span> _ <span class='op'>=</span> <span class='ident'>OsWindow</span>::<span class='ident'>get_app</span>();
 		}
 
-		<span class='kw'>fn</span> <span class='ident'>view</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> {
+		<span class='kw'>fn</span> <span class='ident'>view</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> {
 			<span class='kw'>let</span> <span class='ident'>hwnd</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>get_hwnd</span>();
-			<span class='kw'>let</span> <span class='ident'>hwnd</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>hwnd</span>) };
+			<span class='kw'>let</span> <span class='ident'>hwnd</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>hwnd</span>) };
 			<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;view {:?}&quot;</span>, <span class='ident'>hwnd</span>);
 			<span class='kw'>return</span> <span class='ident'>hwnd</span>;
 		}
 
-		<span class='kw'>fn</span> <span class='ident'>window</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> {
+		<span class='kw'>fn</span> <span class='ident'>window</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> {
 			<span class='kw'>let</span> <span class='ident'>hwnd</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>view</span>();
-			<span class='kw'>let</span> <span class='ident'>obj</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='macro'>msg_send</span><span class='macro'>!</span>(<span class='ident'>hwnd</span>, <span class='ident'>window</span>) };
+			<span class='kw'>let</span> <span class='ident'>obj</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Object</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='macro'>msg_send</span><span class='macro'>!</span>(<span class='ident'>hwnd</span>, <span class='ident'>window</span>) };
 			<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;view {:?} -&gt; window {:?}&quot;</span>, <span class='ident'>hwnd</span>, <span class='ident'>obj</span>);
 			<span class='macro'>assert</span><span class='macro'>!</span>(<span class='op'>!</span><span class='ident'>obj</span>.<span class='ident'>is_null</span>());
 			<span class='kw'>return</span> <span class='ident'>obj</span>;
 		}
 	}
 
-	<span class='kw'>impl</span> <span class='ident'>super</span>::<span class='ident'>BaseWindow</span> <span class='kw'>for</span> <span class='ident'>OsWindow</span> {
+	<span class='kw'>impl</span> <span class='kw'>super</span>::<span class='ident'>BaseWindow</span> <span class='kw'>for</span> <span class='ident'>OsWindow</span> {
 
 		<span class='doccomment'>/// Get native window handle.</span>
 		<span class='kw'>fn</span> <span class='ident'>get_hwnd</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
@@ -818,7 +836,7 @@
 		<span class='doccomment'>/// Create a new native window.</span>
 		<span class='kw'>fn</span> <span class='ident'>create</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rect</span>: (<span class='ident'>i32</span>,<span class='ident'>i32</span>,<span class='ident'>i32</span>,<span class='ident'>i32</span>), <span class='ident'>flags</span>: <span class='ident'>UINT</span>, <span class='ident'>parent</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
 
-			<span class='kw'>if</span> (<span class='ident'>flags</span> <span class='kw-2'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_MAIN</span> <span class='kw'>as</span> <span class='ident'>u32</span>) <span class='op'>!=</span> <span class='number'>0</span> {
+			<span class='kw'>if</span> (<span class='ident'>flags</span> <span class='op'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_MAIN</span> <span class='kw'>as</span> <span class='ident'>u32</span>) <span class='op'>!=</span> <span class='number'>0</span> {
 				<span class='ident'>OsWindow</span>::<span class='ident'>init_app</span>();
 			}
 
@@ -826,15 +844,15 @@
 
 			<span class='kw'>let</span> (<span class='ident'>x</span>,<span class='ident'>y</span>,<span class='ident'>w</span>,<span class='ident'>h</span>) <span class='op'>=</span> <span class='ident'>rect</span>;
 			<span class='kw'>let</span> <span class='ident'>rc</span> <span class='op'>=</span> <span class='ident'>RECT</span> { <span class='ident'>left</span>: <span class='ident'>x</span>, <span class='ident'>top</span>: <span class='ident'>y</span>, <span class='ident'>right</span>: <span class='ident'>x</span> <span class='op'>+</span> <span class='ident'>w</span>, <span class='ident'>bottom</span>: <span class='ident'>y</span> <span class='op'>+</span> <span class='ident'>h</span> };
-			<span class='kw'>let</span> <span class='ident'>prc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ident'>w</span> <span class='op'>&gt;</span> <span class='number'>0</span> <span class='op'>&amp;&amp;</span> <span class='ident'>h</span> <span class='op'>&gt;</span> <span class='number'>0</span> {
+			<span class='kw'>let</span> <span class='ident'>prc</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ident'>w</span> <span class='op'>&gt;</span> <span class='number'>0</span> <span class='op'>&amp;&amp;</span> <span class='ident'>h</span> <span class='op'>&gt;</span> <span class='number'>0</span> {
 				<span class='kw-2'>&amp;</span><span class='ident'>rc</span>
 			} <span class='kw'>else</span> {
-				<span class='number'>0</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>
+				<span class='number'>0</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>
 			};
 
 			<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;window::create with flags {:X}&quot;</span>, <span class='ident'>flags</span>);
 
-			<span class='kw'>let</span> <span class='ident'>cb</span> <span class='op'>=</span> <span class='number'>0</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>SciterWindowDelegate</span>;
+			<span class='kw'>let</span> <span class='ident'>cb</span> <span class='op'>=</span> <span class='number'>0</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>SciterWindowDelegate</span>;
 			<span class='self'>self</span>.<span class='ident'>flags</span> <span class='op'>=</span> <span class='ident'>flags</span>;
 			<span class='self'>self</span>.<span class='ident'>hwnd</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterCreateWindow</span>)(<span class='ident'>flags</span>, <span class='ident'>prc</span>, <span class='ident'>cb</span>, <span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>, <span class='ident'>parent</span>);
 			<span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>is_null</span>() {
@@ -857,9 +875,9 @@
 		<span class='doccomment'>/// Show or maximize window.</span>
 		<span class='kw'>fn</span> <span class='ident'>expand</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>maximize</span>: <span class='ident'>bool</span>) {
 			<span class='kw'>let</span> <span class='ident'>wnd</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>window</span>();
-			<span class='kw'>if</span> (<span class='self'>self</span>.<span class='ident'>flags</span> <span class='kw-2'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_TITLEBAR</span> <span class='kw'>as</span> <span class='ident'>UINT</span>) <span class='op'>!=</span> <span class='number'>0</span> {
+			<span class='kw'>if</span> (<span class='self'>self</span>.<span class='ident'>flags</span> <span class='op'>&amp;</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>SW_TITLEBAR</span> <span class='kw'>as</span> <span class='ident'>UINT</span>) <span class='op'>!=</span> <span class='number'>0</span> {
 				<span class='kw'>let</span> <span class='ident'>app</span> <span class='op'>=</span> <span class='ident'>OsWindow</span>::<span class='ident'>get_app</span>();
-				<span class='kw'>unsafe</span> { <span class='macro'>msg_send</span><span class='macro'>!</span>(<span class='ident'>app</span>, <span class='ident'>activateIgnoringOtherApps</span>:<span class='boolval'>true</span>) };
+				<span class='kw'>unsafe</span> { <span class='macro'>msg_send</span><span class='macro'>!</span>(<span class='ident'>app</span>, <span class='ident'>activateIgnoringOtherApps</span>:<span class='bool-val'>true</span>) };
 			}
 			<span class='kw'>unsafe</span> {
 				<span class='macro'>msg_send</span><span class='macro'>!</span>(<span class='ident'>wnd</span>, <span class='ident'>makeKeyAndOrderFront</span>:<span class='number'>0</span>);
@@ -928,6 +946,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -959,11 +979,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

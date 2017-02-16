@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["BEHAVIOR_EVENTS","Behavior event codes."],["EDIT_CHANGED_REASON","Edit control change trigger."],["EVENT_GROUPS","Event groups for subscription."],["EVENT_REASON","General event source triggers"],["PHASE_MASK","Event propagation schema."]]});

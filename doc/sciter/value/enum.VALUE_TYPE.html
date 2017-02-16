@@ -9,10 +9,12 @@
 
     <title>sciter::value::VALUE_TYPE - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>value</a></p><script>window.sidebarCurrent = {name: 'VALUE_TYPE', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,8 +48,9 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1546' class='srclink' href='../../src/sciter/capi/scvalue.rs.html#45-61' title='goto source code'>[src]</a></span></h1>
-<pre class='rust enum'>pub enum VALUE_TYPE {
+               </span><a class='srclink' href='../../src/sciter/capi/scvalue.rs.html#45-61' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'><div class="docblock attributes">#[repr(C)]
+</div>pub enum VALUE_TYPE {
     T_UNDEFINED,
     T_NULL,
     T_BOOL,
@@ -64,17 +67,32 @@
     T_OBJECT,
     T_DOM_OBJECT,
 }</pre><h2 class='variants'>Variants</h2>
-<table class='variants_table'><tr><td id='variant.T_UNDEFINED'><code>T_UNDEFINED</code></td><td></td><td></td></tr><tr><td id='variant.T_NULL'><code>T_NULL</code></td><td></td><td></td></tr><tr><td id='variant.T_BOOL'><code>T_BOOL</code></td><td></td><td></td></tr><tr><td id='variant.T_INT'><code>T_INT</code></td><td></td><td></td></tr><tr><td id='variant.T_FLOAT'><code>T_FLOAT</code></td><td></td><td></td></tr><tr><td id='variant.T_STRING'><code>T_STRING</code></td><td></td><td></td></tr><tr><td id='variant.T_DATE'><code>T_DATE</code></td><td></td><td></td></tr><tr><td id='variant.T_CURRENCY'><code>T_CURRENCY</code></td><td></td><td></td></tr><tr><td id='variant.T_LENGTH'><code>T_LENGTH</code></td><td></td><td></td></tr><tr><td id='variant.T_ARRAY'><code>T_ARRAY</code></td><td></td><td></td></tr><tr><td id='variant.T_MAP'><code>T_MAP</code></td><td></td><td></td></tr><tr><td id='variant.T_FUNCTION'><code>T_FUNCTION</code></td><td></td><td></td></tr><tr><td id='variant.T_BYTES'><code>T_BYTES</code></td><td></td><td></td></tr><tr><td id='variant.T_OBJECT'><code>T_OBJECT</code></td><td></td><td></td></tr><tr><td id='variant.T_DOM_OBJECT'><code>T_DOM_OBJECT</code></td><td></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ne' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='core::cmp::PartialOrd'>PartialOrd</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></h3><div class='impl-items'><h4 id='method.partial_cmp' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='core::cmp::Ordering'>Ordering</a>&gt;</code></h4>
-<h4 id='method.lt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.le' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.gt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ge' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></h4>
-<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+<span id='variant.T_UNDEFINED' class='variant'><span id='T_UNDEFINED.v' class='invisible'><code>T_UNDEFINED</code></span></span><span id='variant.T_NULL' class='variant'><span id='T_NULL.v' class='invisible'><code>T_NULL</code></span></span><span id='variant.T_BOOL' class='variant'><span id='T_BOOL.v' class='invisible'><code>T_BOOL</code></span></span><span id='variant.T_INT' class='variant'><span id='T_INT.v' class='invisible'><code>T_INT</code></span></span><span id='variant.T_FLOAT' class='variant'><span id='T_FLOAT.v' class='invisible'><code>T_FLOAT</code></span></span><span id='variant.T_STRING' class='variant'><span id='T_STRING.v' class='invisible'><code>T_STRING</code></span></span><span id='variant.T_DATE' class='variant'><span id='T_DATE.v' class='invisible'><code>T_DATE</code></span></span><span id='variant.T_CURRENCY' class='variant'><span id='T_CURRENCY.v' class='invisible'><code>T_CURRENCY</code></span></span><span id='variant.T_LENGTH' class='variant'><span id='T_LENGTH.v' class='invisible'><code>T_LENGTH</code></span></span><span id='variant.T_ARRAY' class='variant'><span id='T_ARRAY.v' class='invisible'><code>T_ARRAY</code></span></span><span id='variant.T_MAP' class='variant'><span id='T_MAP.v' class='invisible'><code>T_MAP</code></span></span><span id='variant.T_FUNCTION' class='variant'><span id='T_FUNCTION.v' class='invisible'><code>T_FUNCTION</code></span></span><span id='variant.T_BYTES' class='variant'><span id='T_BYTES.v' class='invisible'><code>T_BYTES</code></span></span><span id='variant.T_OBJECT' class='variant'><span id='T_OBJECT.v' class='invisible'><code>T_OBJECT</code></span></span><span id='variant.T_DOM_OBJECT' class='variant'><span id='T_DOM_OBJECT.v' class='invisible'><code>T_DOM_OBJECT</code></span></span><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='trait core::fmt::Debug'>Debug</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scvalue.rs.html#44' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='struct core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='type core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='trait core::marker::Copy'>Copy</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scvalue.rs.html#44' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='trait core::clone::Clone'>Clone</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scvalue.rs.html#44' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='trait core::cmp::PartialOrd'>PartialOrd</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scvalue.rs.html#44' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.partial_cmp' class='method'><span id='partial_cmp.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='enum core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='enum core::cmp::Ordering'>Ordering</a>&gt;</code></span></h4>
+<div class='docblock'><p>This method returns an ordering between <code>self</code> and <code>other</code> values if one exists. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp">Read more</a></p>
+</div><h4 id='method.lt' class='method'><span id='lt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests less than (for <code>self</code> and <code>other</code>) and is used by the <code>&lt;</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt">Read more</a></p>
+</div><h4 id='method.le' class='method'><span id='le.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests less than or equal to (for <code>self</code> and <code>other</code>) and is used by the <code>&lt;=</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le">Read more</a></p>
+</div><h4 id='method.gt' class='method'><span id='gt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests greater than (for <code>self</code> and <code>other</code>) and is used by the <code>&gt;</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt">Read more</a></p>
+</div><h4 id='method.ge' class='method'><span id='ge.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests greater than or equal to (for <code>self</code> and <code>other</code>) and is used by the <code>&gt;=</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='trait core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scvalue.rs.html#44' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../sciter/value/enum.VALUE_TYPE.html' title='enum sciter::value::VALUE_TYPE'>VALUE_TYPE</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -97,6 +115,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -128,11 +148,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

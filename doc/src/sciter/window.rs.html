@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `window.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\window.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>window.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -226,12 +228,12 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
 .
 */</span>
 <span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
 
 <span class='kw'>use</span> <span class='ident'>platform</span>::{<span class='ident'>BaseWindow</span>, <span class='ident'>OsWindow</span>};
 <span class='kw'>use</span> <span class='ident'>host</span>::{<span class='ident'>Host</span>, <span class='ident'>HostHandler</span>};
 <span class='kw'>use</span> <span class='ident'>dom</span>::<span class='ident'>event</span>::{<span class='ident'>EventHandler</span>};
-<span class='kw'>use</span> <span class='ident'>eventhandler</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>eventhandler</span>::<span class='kw-2'>*</span>;
 
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>rc</span>::<span class='ident'>Rc</span>;
 
@@ -251,7 +253,7 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
 
 	<span class='doccomment'>/// Create a new main window.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>() <span class='op'>-&gt;</span> <span class='ident'>Window</span> {
-		<span class='kw'>let</span> <span class='ident'>flags</span> <span class='op'>=</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>main_window</span>(<span class='boolval'>true</span>);
+		<span class='kw'>let</span> <span class='ident'>flags</span> <span class='op'>=</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>::<span class='ident'>main_window</span>(<span class='bool-val'>true</span>);
 		<span class='ident'>Window</span>::<span class='ident'>create</span>((<span class='number'>0</span>,<span class='number'>0</span>,<span class='number'>0</span>,<span class='number'>0</span>), <span class='ident'>flags</span>, <span class='prelude-val'>None</span>)
 	}
 
@@ -278,7 +280,7 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
 
 	<span class='doccomment'>/// Attach Sciter to existing native window.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>attach</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>Window</span> {
-		<span class='macro'>assert</span><span class='macro'>!</span>( <span class='ident'>hwnd</span>.<span class='ident'>is_null</span>() <span class='op'>==</span> <span class='boolval'>false</span> );
+		<span class='macro'>assert</span><span class='macro'>!</span>( <span class='ident'>hwnd</span>.<span class='ident'>is_null</span>() <span class='op'>==</span> <span class='bool-val'>false</span> );
 		<span class='ident'>Window</span> { <span class='ident'>base</span>: <span class='ident'>OsWindow</span>::<span class='ident'>from</span>(<span class='ident'>hwnd</span>), <span class='ident'>host</span>: <span class='ident'>Rc</span>::<span class='ident'>new</span>(<span class='ident'>Host</span>::<span class='ident'>attach</span>(<span class='ident'>hwnd</span>)) }
 	}
 
@@ -344,7 +346,7 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
 	<span class='doccomment'>/// Show window and run the main app message loop until window been closed.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>run_app</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>show_window</span>: <span class='ident'>bool</span>) {
 		<span class='kw'>if</span> <span class='ident'>show_window</span> {
-			<span class='self'>self</span>.<span class='ident'>base</span>.<span class='ident'>expand</span>(<span class='boolval'>false</span>);
+			<span class='self'>self</span>.<span class='ident'>base</span>.<span class='ident'>expand</span>(<span class='bool-val'>false</span>);
 		}
 		<span class='self'>self</span>.<span class='ident'>base</span>.<span class='ident'>run_app</span>();
 	}
@@ -378,6 +380,8 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -409,11 +413,9 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

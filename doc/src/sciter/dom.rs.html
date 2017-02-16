@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `dom.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\dom.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>dom.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -1154,6 +1156,48 @@
 <span id="1111">1111</span>
 <span id="1112">1112</span>
 <span id="1113">1113</span>
+<span id="1114">1114</span>
+<span id="1115">1115</span>
+<span id="1116">1116</span>
+<span id="1117">1117</span>
+<span id="1118">1118</span>
+<span id="1119">1119</span>
+<span id="1120">1120</span>
+<span id="1121">1121</span>
+<span id="1122">1122</span>
+<span id="1123">1123</span>
+<span id="1124">1124</span>
+<span id="1125">1125</span>
+<span id="1126">1126</span>
+<span id="1127">1127</span>
+<span id="1128">1128</span>
+<span id="1129">1129</span>
+<span id="1130">1130</span>
+<span id="1131">1131</span>
+<span id="1132">1132</span>
+<span id="1133">1133</span>
+<span id="1134">1134</span>
+<span id="1135">1135</span>
+<span id="1136">1136</span>
+<span id="1137">1137</span>
+<span id="1138">1138</span>
+<span id="1139">1139</span>
+<span id="1140">1140</span>
+<span id="1141">1141</span>
+<span id="1142">1142</span>
+<span id="1143">1143</span>
+<span id="1144">1144</span>
+<span id="1145">1145</span>
+<span id="1146">1146</span>
+<span id="1147">1147</span>
+<span id="1148">1148</span>
+<span id="1149">1149</span>
+<span id="1150">1150</span>
+<span id="1151">1151</span>
+<span id="1152">1152</span>
+<span id="1153">1153</span>
+<span id="1154">1154</span>
+<span id="1155">1155</span>
 </pre><pre class='rust '>
 <span class='doccomment'>/*! DOM access methods.
 
@@ -1292,10 +1336,11 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 */</span>
 
 <span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
 <span class='kw'>use</span> <span class='ident'>value</span>::<span class='ident'>Value</span>;
 
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdom</span>::{<span class='ident'>SCDOM_RESULT</span>, <span class='ident'>HELEMENT</span>, <span class='ident'>SET_ELEMENT_HTML</span>};
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scbehavior</span>::{<span class='ident'>CLICK_REASON</span>, <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>BEHAVIOR_EVENT_PARAMS</span>};
 
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dom</span>::<span class='ident'>event</span>::<span class='ident'>EventHandler</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dom</span>::<span class='ident'>event</span>::<span class='ident'>EventReason</span>;
@@ -1344,7 +1389,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 <span class='kw'>impl</span> <span class='ident'>ElementVisitor</span> <span class='kw'>for</span> <span class='ident'>FindFirstElement</span> {
 	<span class='kw'>fn</span> <span class='ident'>on_element</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>el</span>: <span class='ident'>Element</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
 		<span class='self'>self</span>.<span class='ident'>all</span>.<span class='ident'>push</span>(<span class='ident'>el</span>);
-		<span class='kw'>return</span> <span class='boolval'>true</span>;	<span class='comment'>// stop enumeration</span>
+		<span class='kw'>return</span> <span class='bool-val'>true</span>;	<span class='comment'>// stop enumeration</span>
 	}
 	<span class='kw'>fn</span> <span class='ident'>result</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>Element</span><span class='op'>&gt;</span> {
 		<span class='self'>self</span>.<span class='ident'>all</span>.<span class='ident'>clone</span>()
@@ -1359,7 +1404,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 <span class='kw'>impl</span> <span class='ident'>ElementVisitor</span> <span class='kw'>for</span> <span class='ident'>FindAllElements</span> {
 	<span class='kw'>fn</span> <span class='ident'>on_element</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>el</span>: <span class='ident'>Element</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
 		<span class='self'>self</span>.<span class='ident'>all</span>.<span class='ident'>push</span>(<span class='ident'>el</span>);
-		<span class='kw'>return</span> <span class='boolval'>false</span>;	<span class='comment'>// continue enumeration</span>
+		<span class='kw'>return</span> <span class='bool-val'>false</span>;	<span class='comment'>// continue enumeration</span>
 	}
 	<span class='kw'>fn</span> <span class='ident'>result</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>Element</span><span class='op'>&gt;</span> {
 		<span class='self'>self</span>.<span class='ident'>all</span>.<span class='ident'>clone</span>()
@@ -1485,14 +1530,14 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='doccomment'>/// Return element tag as string (e.g. &#39;div&#39;, &#39;body&#39;).</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_tag</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>String</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementTypeCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>store_astr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementTypeCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>store_astr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>return</span> <span class='ident'>s</span>;
 	}
 
 	<span class='doccomment'>/// Get inner text of the element as string.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_text</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>String</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementTextCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementTextCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>return</span> <span class='ident'>s</span>;
 	}
 
@@ -1506,7 +1551,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='doccomment'>/// Get html representation of the element as utf-8 bytes.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_html</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>with_outer_html</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='ident'>new</span>();
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementHtmlCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>with_outer_html</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>, <span class='ident'>store_bstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementHtmlCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>with_outer_html</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>, <span class='ident'>store_bstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>return</span> <span class='ident'>s</span>;
 	}
 
@@ -1535,14 +1580,55 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='doccomment'>/// Get HWINDOW of containing window.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_hwnd</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>for_root</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>HWINDOW</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementHwnd</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>hwnd</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HWINDOW</span>, <span class='ident'>for_root</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementHwnd</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>hwnd</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>HWINDOW</span>, <span class='ident'>for_root</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>);
 		<span class='kw'>return</span> <span class='ident'>hwnd</span>;
 	}
 
 	<span class='comment'>// TODO: get_location</span>
 	<span class='comment'>// TODO: request_data, request_html</span>
 	<span class='comment'>// TODO: send_request</span>
-	<span class='comment'>// TODO: send_event, post_event, fire_event</span>
+
+	<span class='doccomment'>/// Sends sinking/bubbling event to the child/parent chain of element.</span>
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>send_event</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>code</span>: <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>reason</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>CLICK_REASON</span><span class='op'>&gt;</span>, <span class='ident'>source</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>HELEMENT</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>handled</span> <span class='op'>=</span> <span class='bool-val'>false</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>;
+		<span class='kw'>let</span> <span class='ident'>r</span> <span class='op'>=</span> <span class='ident'>reason</span>.<span class='ident'>unwrap_or</span>(<span class='ident'>CLICK_REASON</span>::<span class='ident'>SYNTHESIZED</span>);
+		<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>source</span>.<span class='ident'>unwrap_or</span>(<span class='self'>self</span>.<span class='ident'>he</span>);
+		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterSendEvent</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>code</span> <span class='kw'>as</span> <span class='ident'>u32</span>, <span class='ident'>s</span>, <span class='ident'>r</span> <span class='kw'>as</span> <span class='ident'>u32</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>handled</span>);
+		<span class='macro'>ok_or</span><span class='macro'>!</span>(<span class='ident'>handled</span> <span class='op'>!=</span> <span class='number'>0</span>, <span class='ident'>ok</span>)
+	}
+
+	<span class='doccomment'>/// Post asynchronously a sinking/bubbling event to the child/parent chain of element.</span>
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>post_event</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>code</span>: <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>reason</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>CLICK_REASON</span><span class='op'>&gt;</span>, <span class='ident'>source</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>HELEMENT</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+		<span class='kw'>let</span> <span class='ident'>r</span> <span class='op'>=</span> <span class='ident'>reason</span>.<span class='ident'>unwrap_or</span>(<span class='ident'>CLICK_REASON</span>::<span class='ident'>SYNTHESIZED</span>);
+		<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>source</span>.<span class='ident'>unwrap_or</span>(<span class='self'>self</span>.<span class='ident'>he</span>);
+		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterPostEvent</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>code</span> <span class='kw'>as</span> <span class='ident'>u32</span>, <span class='ident'>s</span>, <span class='ident'>r</span> <span class='kw'>as</span> <span class='ident'>u32</span>);
+		<span class='macro'>ok_or</span><span class='macro'>!</span>((), <span class='ident'>ok</span>)
+	}
+
+	<span class='doccomment'>/// Send or posts event to the child/parent chain of element.</span>
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fire_event</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>code</span>: <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>reason</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>CLICK_REASON</span><span class='op'>&gt;</span>, <span class='ident'>source</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>HELEMENT</span><span class='op'>&gt;</span>, <span class='ident'>post</span>: <span class='ident'>bool</span>, <span class='ident'>data</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Value</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>handled</span> <span class='op'>=</span> <span class='bool-val'>false</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>;
+		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>params</span> <span class='op'>=</span> <span class='ident'>BEHAVIOR_EVENT_PARAMS</span> {
+			<span class='ident'>cmd</span>: <span class='ident'>code</span> <span class='kw'>as</span> <span class='ident'>UINT</span>,
+			<span class='ident'>reason</span>: <span class='ident'>reason</span>.<span class='ident'>unwrap_or</span>(<span class='ident'>CLICK_REASON</span>::<span class='ident'>SYNTHESIZED</span>) <span class='kw'>as</span> <span class='ident'>UINT_PTR</span>,
+			<span class='ident'>he</span>: <span class='ident'>source</span>.<span class='ident'>unwrap_or</span>(<span class='self'>self</span>.<span class='ident'>he</span>),
+			<span class='ident'>heTarget</span>: <span class='self'>self</span>.<span class='ident'>he</span>,
+			<span class='ident'>data</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
+		};
+		<span class='kw'>if</span> <span class='ident'>data</span>.<span class='ident'>is_some</span>() {
+			<span class='ident'>data</span>.<span class='ident'>unwrap</span>().<span class='ident'>pack_to</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>params</span>.<span class='ident'>data</span>);
+		}
+		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterFireEvent</span>)(<span class='kw-2'>&amp;</span><span class='ident'>params</span>, <span class='ident'>post</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>handled</span>);
+		<span class='macro'>ok_or</span><span class='macro'>!</span>(<span class='ident'>handled</span> <span class='op'>!=</span> <span class='number'>0</span>, <span class='ident'>ok</span>)
+	}
+
+	<span class='doccomment'>/// Send or posts event with specified params to the child/parent chain of element.</span>
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fire_event_params</span>(<span class='ident'>evt</span>: <span class='kw-2'>&amp;</span><span class='ident'>BEHAVIOR_EVENT_PARAMS</span>, <span class='ident'>post</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>handled</span> <span class='op'>=</span> <span class='bool-val'>false</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>;
+		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterFireEvent</span>)(<span class='ident'>evt</span>, <span class='ident'>post</span> <span class='kw'>as</span> <span class='ident'>BOOL</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>handled</span>);
+		<span class='macro'>ok_or</span><span class='macro'>!</span>(<span class='ident'>handled</span> <span class='op'>!=</span> <span class='number'>0</span>, <span class='ident'>ok</span>)
+	}
+
 
 	<span class='doccomment'>/// Evaluate script in element context.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>eval_script</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>script</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Value</span><span class='op'>&gt;</span> {
@@ -1586,14 +1672,14 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='doccomment'>/// Get attribute name by its index.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>attribute_name</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>index</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='ident'>String</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetNthAttributeNameCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>index</span> <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>store_astr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetNthAttributeNameCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>index</span> <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>store_astr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>return</span> <span class='ident'>s</span>;
 	}
 
 	<span class='doccomment'>/// Get attribute value by its index.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>attribute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>index</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='ident'>String</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetNthAttributeValueCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>index</span> <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetNthAttributeValueCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>index</span> <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>return</span> <span class='ident'>s</span>;
 	}
 
@@ -1601,7 +1687,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_attribute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
 		<span class='kw'>let</span> (<span class='ident'>name</span>,_) <span class='op'>=</span> <span class='macro'>s2u</span><span class='macro'>!</span>(<span class='ident'>name</span>);
-		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterGetAttributeByNameCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>name</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterGetAttributeByNameCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>name</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>match</span> <span class='ident'>ok</span> {
 			<span class='ident'>SCDOM_RESULT</span>::<span class='ident'>OK</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Some</span>(<span class='ident'>s</span>),
 			<span class='ident'>SCDOM_RESULT</span>::<span class='ident'>OK_NOT_HANDLED</span> <span class='op'>=&gt;</span> <span class='prelude-val'>None</span>,
@@ -1647,7 +1733,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_style_attribute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) <span class='op'>-&gt;</span> <span class='ident'>String</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
 		<span class='kw'>let</span> (<span class='ident'>name</span>,_) <span class='op'>=</span> <span class='macro'>s2u</span><span class='macro'>!</span>(<span class='ident'>name</span>);
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetStyleAttributeCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>name</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetStyleAttributeCB</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='ident'>name</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>store_wstr</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='kw'>return</span> <span class='ident'>s</span>;
 	}
 
@@ -1667,7 +1753,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='doccomment'>/// Get index of this element in its parent collection.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>index</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>n</span> <span class='op'>=</span> <span class='number'>0u32</span>;
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementIndex</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>n</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UINT</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetElementIndex</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>n</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>UINT</span>);
 		<span class='kw'>return</span> <span class='ident'>n</span> <span class='kw'>as</span> <span class='ident'>usize</span>;
 	}
 
@@ -1769,7 +1855,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 	<span class='doccomment'>/// Get number of child elements.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>children_count</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>n</span> <span class='op'>=</span> <span class='number'>0u32</span>;
-		(<span class='ident'>_API</span>.<span class='ident'>SciterGetChildrenCount</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>n</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UINT</span>);
+		(<span class='ident'>_API</span>.<span class='ident'>SciterGetChildrenCount</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>n</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>UINT</span>);
 		<span class='kw'>return</span> <span class='ident'>n</span> <span class='kw'>as</span> <span class='ident'>usize</span>;
 	}
 
@@ -1941,7 +2027,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 
 	<span class='doccomment'>/// Detach your handler from the element. Handlers identified by `token` from `attach_handler()` result.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>detach_handler</span><span class='op'>&lt;</span><span class='ident'>T</span>: ::<span class='ident'>dom</span>::<span class='ident'>EventHandler</span><span class='op'>&gt;</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>token</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
-		<span class='kw'>let</span> <span class='ident'>ptr</span> <span class='op'>=</span> <span class='ident'>token</span> <span class='kw'>as</span> <span class='ident'>usize</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>;
+		<span class='kw'>let</span> <span class='ident'>ptr</span> <span class='op'>=</span> <span class='ident'>token</span> <span class='kw'>as</span> <span class='ident'>usize</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>;
 		<span class='kw'>let</span> <span class='ident'>ok</span> <span class='op'>=</span> (<span class='ident'>_API</span>.<span class='ident'>SciterDetachEventHandler</span>)(<span class='self'>self</span>.<span class='ident'>he</span>, ::<span class='ident'>eventhandler</span>::<span class='ident'>_event_handler_proc</span>::<span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>, <span class='ident'>ptr</span> <span class='kw'>as</span> <span class='ident'>LPVOID</span>);
 		<span class='macro'>ok_or</span><span class='macro'>!</span>((), <span class='ident'>ok</span>)
 	}
@@ -1957,7 +2043,7 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 
 <span class='doccomment'>/// Increment reference count of the dom element.</span>
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>Element</span> {
-	<span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
+	<span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='self'>Self</span> {
 		<span class='ident'>Element</span>::<span class='ident'>from</span>(<span class='self'>self</span>.<span class='ident'>he</span>)
 	}
 }
@@ -2004,22 +2090,22 @@ if (var num = self.select(&quot;input[type=number]&quot;)) {
 <span class='doccomment'>/// Convert an incoming UTF-16 to `String`.</span>
 <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>store_wstr</span>(<span class='ident'>szstr</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>str_length</span>: <span class='ident'>UINT</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) {
 	<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>utf</span>::<span class='ident'>w2sn</span>(<span class='ident'>szstr</span>, <span class='ident'>str_length</span> <span class='kw'>as</span> <span class='ident'>usize</span>);
-	<span class='kw'>let</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>param</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span>;
-	<span class='kw'>unsafe</span> { <span class='op'>*</span><span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>s</span> };
+	<span class='kw'>let</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>param</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span>;
+	<span class='kw'>unsafe</span> { <span class='kw-2'>*</span><span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>s</span> };
 }
 
 <span class='doccomment'>/// Convert an incoming UTF-8 to `String`.</span>
 <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>store_astr</span>(<span class='ident'>szstr</span>: <span class='ident'>LPCSTR</span>,  <span class='ident'>str_length</span>: <span class='ident'>UINT</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) {
 	<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>utf</span>::<span class='ident'>u2sn</span>(<span class='ident'>szstr</span>, <span class='ident'>str_length</span> <span class='kw'>as</span> <span class='ident'>usize</span>);
-	<span class='kw'>let</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>param</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span>;
-	<span class='kw'>unsafe</span> { <span class='op'>*</span><span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>s</span> };
+	<span class='kw'>let</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>param</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>String</span>;
+	<span class='kw'>unsafe</span> { <span class='kw-2'>*</span><span class='ident'>out</span> <span class='op'>=</span> <span class='ident'>s</span> };
 }
 
 <span class='doccomment'>/// Convert an incoming html string (UTF-8 in fact) to `String`.</span>
 <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>store_bstr</span>(<span class='ident'>szstr</span>: <span class='ident'>LPCBYTE</span>, <span class='ident'>str_length</span>: <span class='ident'>UINT</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) {
 	<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>slice</span>::<span class='ident'>from_raw_parts</span>(<span class='ident'>szstr</span>, <span class='ident'>str_length</span> <span class='kw'>as</span> <span class='ident'>usize</span>) };
-	<span class='kw'>let</span> <span class='ident'>pout</span> <span class='op'>=</span> <span class='ident'>param</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>;
-	<span class='kw'>let</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='kw'>unsafe</span> {<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='ident'>pout</span>};
+	<span class='kw'>let</span> <span class='ident'>pout</span> <span class='op'>=</span> <span class='ident'>param</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>;
+	<span class='kw'>let</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='kw'>unsafe</span> {<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='kw-2'>*</span><span class='ident'>pout</span>};
 	<span class='ident'>out</span>.<span class='ident'>extend_from_slice</span>(<span class='ident'>s</span>);
 }
 
@@ -2189,9 +2275,9 @@ This way you can establish interaction between scipt and native code inside your
 
 */</span>
 
-	<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scbehavior</span>::{<span class='ident'>EVENT_REASON</span>, <span class='ident'>EVENT_GROUPS</span>, <span class='ident'>EDIT_CHANGED_REASON</span>, <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>PHASE_MASK</span>};
+	<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scbehavior</span>::{<span class='ident'>CLICK_REASON</span>, <span class='ident'>EVENT_GROUPS</span>, <span class='ident'>EDIT_CHANGED_REASON</span>, <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>PHASE_MASK</span>};
 
-	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
 	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdom</span>::<span class='ident'>HELEMENT</span>;
 	<span class='kw'>use</span> <span class='ident'>value</span>::<span class='ident'>Value</span>;
 
@@ -2206,7 +2292,7 @@ This way you can establish interaction between scipt and native code inside your
 	<span class='doccomment'>/// UI action causing change.</span>
 	<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>EventReason</span> {
 		<span class='doccomment'>/// General event source triggers (by mouse, key or synthesized).</span>
-	  <span class='ident'>General</span>(<span class='ident'>EVENT_REASON</span>),
+	  <span class='ident'>General</span>(<span class='ident'>CLICK_REASON</span>),
 	  <span class='doccomment'>/// Edit control change trigger.</span>
 	  <span class='ident'>EditChanged</span>(<span class='ident'>EDIT_CHANGED_REASON</span>),
 	  <span class='doccomment'>/// `&lt;video&gt;` request for frame source binding (*unsupported yet*).</span>
@@ -2259,11 +2345,11 @@ This way you can establish interaction between scipt and native code inside your
 
 		<span class='doccomment'>/// Notification event from builtin behaviors.</span>
 		<span class='kw'>fn</span> <span class='ident'>on_event</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>root</span>: <span class='ident'>HELEMENT</span>, <span class='ident'>source</span>: <span class='ident'>HELEMENT</span>, <span class='ident'>target</span>: <span class='ident'>HELEMENT</span>, <span class='ident'>code</span>: <span class='ident'>BEHAVIOR_EVENTS</span>, <span class='ident'>phase</span>: <span class='ident'>PHASE_MASK</span>, <span class='ident'>reason</span>: <span class='ident'>EventReason</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-			<span class='kw'>return</span> <span class='boolval'>false</span>;
+			<span class='kw'>return</span> <span class='bool-val'>false</span>;
 		}
 
 		<span class='doccomment'>/// Timer event from attached element.</span>
-		<span class='kw'>fn</span> <span class='ident'>on_timer</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>root</span>: <span class='ident'>HELEMENT</span>, <span class='ident'>timer_id</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='kw'>return</span> <span class='boolval'>false</span>; }
+		<span class='kw'>fn</span> <span class='ident'>on_timer</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>root</span>: <span class='ident'>HELEMENT</span>, <span class='ident'>timer_id</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='kw'>return</span> <span class='bool-val'>false</span>; }
 
 	}
 
@@ -2292,6 +2378,8 @@ This way you can establish interaction between scipt and native code inside your
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -2323,11 +2411,9 @@ This way you can establish interaction between scipt and native code inside your
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

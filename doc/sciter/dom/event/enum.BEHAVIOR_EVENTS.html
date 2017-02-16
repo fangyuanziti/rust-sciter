@@ -9,10 +9,12 @@
 
     <title>sciter::dom::event::BEHAVIOR_EVENTS - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a href='index.html'>event</a></p><script>window.sidebarCurrent = {name: 'BEHAVIOR_EVENTS', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,8 +48,9 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-825' class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#149-317' title='goto source code'>[src]</a></span></h1>
-<pre class='rust enum'>pub enum BEHAVIOR_EVENTS {
+               </span><a class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#152-320' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'><div class="docblock attributes">#[repr(C)]
+</div>pub enum BEHAVIOR_EVENTS {
     BUTTON_CLICK,
     BUTTON_PRESS,
     BUTTON_STATE_CHANGED,
@@ -99,65 +102,65 @@
     FIRST_APPLICATION_EVENT_CODE,
 }</pre><div class='docblock'><p>Behavior event codes.</p>
 </div><h2 class='variants'>Variants</h2>
-<table class='variants_table'><tr><td id='variant.BUTTON_CLICK'><code>BUTTON_CLICK</code></td><td><div class='docblock'><p>click on button</p>
-</div></td><td></td></tr><tr><td id='variant.BUTTON_PRESS'><code>BUTTON_PRESS</code></td><td><div class='docblock'><p>mouse down or key down in button</p>
-</div></td><td></td></tr><tr><td id='variant.BUTTON_STATE_CHANGED'><code>BUTTON_STATE_CHANGED</code></td><td><div class='docblock'><p>checkbox/radio/slider changed its state/value</p>
-</div></td><td></td></tr><tr><td id='variant.EDIT_VALUE_CHANGING'><code>EDIT_VALUE_CHANGING</code></td><td><div class='docblock'><p>before text change</p>
-</div></td><td></td></tr><tr><td id='variant.EDIT_VALUE_CHANGED'><code>EDIT_VALUE_CHANGED</code></td><td><div class='docblock'><p>after text change</p>
-</div></td><td></td></tr><tr><td id='variant.SELECT_SELECTION_CHANGED'><code>SELECT_SELECTION_CHANGED</code></td><td><div class='docblock'><p>selection in <code>&lt;select&gt;</code> changed</p>
-</div></td><td></td></tr><tr><td id='variant.SELECT_STATE_CHANGED'><code>SELECT_STATE_CHANGED</code></td><td><div class='docblock'><p>node in select expanded/collapsed, heTarget is the node</p>
-</div></td><td></td></tr><tr><td id='variant.POPUP_REQUEST'><code>POPUP_REQUEST</code></td><td><div class='docblock'><p>request to show popup just received,
+<span id='variant.BUTTON_CLICK' class='variant'><span id='BUTTON_CLICK.v' class='invisible'><code>BUTTON_CLICK</code></span></span><div class='docblock'><p>click on button</p>
+</div><span id='variant.BUTTON_PRESS' class='variant'><span id='BUTTON_PRESS.v' class='invisible'><code>BUTTON_PRESS</code></span></span><div class='docblock'><p>mouse down or key down in button</p>
+</div><span id='variant.BUTTON_STATE_CHANGED' class='variant'><span id='BUTTON_STATE_CHANGED.v' class='invisible'><code>BUTTON_STATE_CHANGED</code></span></span><div class='docblock'><p>checkbox/radio/slider changed its state/value</p>
+</div><span id='variant.EDIT_VALUE_CHANGING' class='variant'><span id='EDIT_VALUE_CHANGING.v' class='invisible'><code>EDIT_VALUE_CHANGING</code></span></span><div class='docblock'><p>before text change</p>
+</div><span id='variant.EDIT_VALUE_CHANGED' class='variant'><span id='EDIT_VALUE_CHANGED.v' class='invisible'><code>EDIT_VALUE_CHANGED</code></span></span><div class='docblock'><p>after text change</p>
+</div><span id='variant.SELECT_SELECTION_CHANGED' class='variant'><span id='SELECT_SELECTION_CHANGED.v' class='invisible'><code>SELECT_SELECTION_CHANGED</code></span></span><div class='docblock'><p>selection in <code>&lt;select&gt;</code> changed</p>
+</div><span id='variant.SELECT_STATE_CHANGED' class='variant'><span id='SELECT_STATE_CHANGED.v' class='invisible'><code>SELECT_STATE_CHANGED</code></span></span><div class='docblock'><p>node in select expanded/collapsed, heTarget is the node</p>
+</div><span id='variant.POPUP_REQUEST' class='variant'><span id='POPUP_REQUEST.v' class='invisible'><code>POPUP_REQUEST</code></span></span><div class='docblock'><p>request to show popup just received,
 here DOM of popup element can be modifed.</p>
-</div></td><td></td></tr><tr><td id='variant.POPUP_READY'><code>POPUP_READY</code></td><td><div class='docblock'><p>popup element has been measured and ready to be shown on screen,
+</div><span id='variant.POPUP_READY' class='variant'><span id='POPUP_READY.v' class='invisible'><code>POPUP_READY</code></span></span><div class='docblock'><p>popup element has been measured and ready to be shown on screen,
 here you can use functions like <code>ScrollToView</code>.</p>
-</div></td><td></td></tr><tr><td id='variant.POPUP_DISMISSED'><code>POPUP_DISMISSED</code></td><td><div class='docblock'><p>popup element is closed,
+</div><span id='variant.POPUP_DISMISSED' class='variant'><span id='POPUP_DISMISSED.v' class='invisible'><code>POPUP_DISMISSED</code></span></span><div class='docblock'><p>popup element is closed,
 here DOM of popup element can be modifed again - e.g. some items can be removed to free memory.</p>
-</div></td><td></td></tr><tr><td id='variant.MENU_ITEM_ACTIVE'><code>MENU_ITEM_ACTIVE</code></td><td><div class='docblock'><p>menu item activated by mouse hover or by keyboard,</p>
-</div></td><td></td></tr><tr><td id='variant.MENU_ITEM_CLICK'><code>MENU_ITEM_CLICK</code></td><td><div class='docblock'><p>menu item click,
+</div><span id='variant.MENU_ITEM_ACTIVE' class='variant'><span id='MENU_ITEM_ACTIVE.v' class='invisible'><code>MENU_ITEM_ACTIVE</code></span></span><div class='docblock'><p>menu item activated by mouse hover or by keyboard,</p>
+</div><span id='variant.MENU_ITEM_CLICK' class='variant'><span id='MENU_ITEM_CLICK.v' class='invisible'><code>MENU_ITEM_CLICK</code></span></span><div class='docblock'><p>menu item click,
 BEHAVIOR_EVENT_PARAMS structure layout
 BEHAVIOR_EVENT_PARAMS.cmd - MENU_ITEM_CLICK/MENU_ITEM_ACTIVE
 BEHAVIOR_EVENT_PARAMS.heTarget - owner(anchor) of the menu
 BEHAVIOR_EVENT_PARAMS.he - the menu item, presumably <code>&lt;li&gt;</code> element
 BEHAVIOR_EVENT_PARAMS.reason - BY_MOUSE_CLICK | BY_KEY_CLICK</p>
-</div></td><td></td></tr><tr><td id='variant.CONTEXT_MENU_REQUEST'><code>CONTEXT_MENU_REQUEST</code></td><td><div class='docblock'><p>&quot;right-click&quot;, BEHAVIOR_EVENT_PARAMS::he is current popup menu <code>HELEMENT</code> being processed or <code>NULL</code>.
+</div><span id='variant.CONTEXT_MENU_REQUEST' class='variant'><span id='CONTEXT_MENU_REQUEST.v' class='invisible'><code>CONTEXT_MENU_REQUEST</code></span></span><div class='docblock'><p>&quot;right-click&quot;, BEHAVIOR_EVENT_PARAMS::he is current popup menu <code>HELEMENT</code> being processed or <code>NULL</code>.
 application can provide its own <code>HELEMENT</code> here (if it is <code>NULL</code>) or modify current menu element.</p>
-</div></td><td></td></tr><tr><td id='variant.VISIUAL_STATUS_CHANGED'><code>VISIUAL_STATUS_CHANGED</code></td><td><div class='docblock'><p>broadcast notification, sent to all elements of some container being shown or hidden</p>
-</div></td><td></td></tr><tr><td id='variant.DISABLED_STATUS_CHANGED'><code>DISABLED_STATUS_CHANGED</code></td><td><div class='docblock'><p>broadcast notification, sent to all elements of some container that got new value of <code>:disabled</code> state</p>
-</div></td><td></td></tr><tr><td id='variant.POPUP_DISMISSING'><code>POPUP_DISMISSING</code></td><td><div class='docblock'><p>popup is about to be closed</p>
-</div></td><td></td></tr><tr><td id='variant.CONTENT_CHANGED'><code>CONTENT_CHANGED</code></td><td><div class='docblock'><p>content has been changed, is posted to the element that gets content changed,  reason is combination of <code>CONTENT_CHANGE_BITS</code>.
+</div><span id='variant.VISIUAL_STATUS_CHANGED' class='variant'><span id='VISIUAL_STATUS_CHANGED.v' class='invisible'><code>VISIUAL_STATUS_CHANGED</code></span></span><div class='docblock'><p>broadcast notification, sent to all elements of some container being shown or hidden</p>
+</div><span id='variant.DISABLED_STATUS_CHANGED' class='variant'><span id='DISABLED_STATUS_CHANGED.v' class='invisible'><code>DISABLED_STATUS_CHANGED</code></span></span><div class='docblock'><p>broadcast notification, sent to all elements of some container that got new value of <code>:disabled</code> state</p>
+</div><span id='variant.POPUP_DISMISSING' class='variant'><span id='POPUP_DISMISSING.v' class='invisible'><code>POPUP_DISMISSING</code></span></span><div class='docblock'><p>popup is about to be closed</p>
+</div><span id='variant.CONTENT_CHANGED' class='variant'><span id='CONTENT_CHANGED.v' class='invisible'><code>CONTENT_CHANGED</code></span></span><div class='docblock'><p>content has been changed, is posted to the element that gets content changed,  reason is combination of <code>CONTENT_CHANGE_BITS</code>.
 <code>target == NULL</code> means the window got new document and this event is dispatched only to the window.</p>
-</div></td><td></td></tr><tr><td id='variant.CLICK'><code>CLICK</code></td><td><div class='docblock'><p>generic click</p>
-</div></td><td></td></tr><tr><td id='variant.CHANGE'><code>CHANGE</code></td><td><div class='docblock'><p>generic change</p>
-</div></td><td></td></tr><tr><td id='variant.HYPERLINK_CLICK'><code>HYPERLINK_CLICK</code></td><td><div class='docblock'><p>hyperlink click</p>
-</div></td><td></td></tr><tr><td id='variant.ELEMENT_COLLAPSED'><code>ELEMENT_COLLAPSED</code></td><td><div class='docblock'><p>element was collapsed, so far only behavior:tabs is sending these two to the panels</p>
-</div></td><td></td></tr><tr><td id='variant.ELEMENT_EXPANDED'><code>ELEMENT_EXPANDED</code></td><td><div class='docblock'><p>element was expanded,</p>
-</div></td><td></td></tr><tr><td id='variant.ACTIVATE_CHILD'><code>ACTIVATE_CHILD</code></td><td><div class='docblock'><p>activate (select) child,
+</div><span id='variant.CLICK' class='variant'><span id='CLICK.v' class='invisible'><code>CLICK</code></span></span><div class='docblock'><p>generic click</p>
+</div><span id='variant.CHANGE' class='variant'><span id='CHANGE.v' class='invisible'><code>CHANGE</code></span></span><div class='docblock'><p>generic change</p>
+</div><span id='variant.HYPERLINK_CLICK' class='variant'><span id='HYPERLINK_CLICK.v' class='invisible'><code>HYPERLINK_CLICK</code></span></span><div class='docblock'><p>hyperlink click</p>
+</div><span id='variant.ELEMENT_COLLAPSED' class='variant'><span id='ELEMENT_COLLAPSED.v' class='invisible'><code>ELEMENT_COLLAPSED</code></span></span><div class='docblock'><p>element was collapsed, so far only behavior:tabs is sending these two to the panels</p>
+</div><span id='variant.ELEMENT_EXPANDED' class='variant'><span id='ELEMENT_EXPANDED.v' class='invisible'><code>ELEMENT_EXPANDED</code></span></span><div class='docblock'><p>element was expanded,</p>
+</div><span id='variant.ACTIVATE_CHILD' class='variant'><span id='ACTIVATE_CHILD.v' class='invisible'><code>ACTIVATE_CHILD</code></span></span><div class='docblock'><p>activate (select) child,
 used for example by accesskeys behaviors to send activation request, e.g. tab on <code>behavior:tabs</code>.</p>
-</div></td><td></td></tr><tr><td id='variant.INIT_DATA_VIEW'><code>INIT_DATA_VIEW</code></td><td><div class='docblock'><p>request to virtual grid to initialize its view</p>
-</div></td><td></td></tr><tr><td id='variant.ROWS_DATA_REQUEST'><code>ROWS_DATA_REQUEST</code></td><td><div class='docblock'><p>request from virtual grid to data source behavior to fill data in the table
+</div><span id='variant.INIT_DATA_VIEW' class='variant'><span id='INIT_DATA_VIEW.v' class='invisible'><code>INIT_DATA_VIEW</code></span></span><div class='docblock'><p>request to virtual grid to initialize its view</p>
+</div><span id='variant.ROWS_DATA_REQUEST' class='variant'><span id='ROWS_DATA_REQUEST.v' class='invisible'><code>ROWS_DATA_REQUEST</code></span></span><div class='docblock'><p>request from virtual grid to data source behavior to fill data in the table
 parameters passed throug <code>DATA_ROWS_PARAMS</code> structure.</p>
-</div></td><td></td></tr><tr><td id='variant.UI_STATE_CHANGED'><code>UI_STATE_CHANGED</code></td><td><div class='docblock'><p>ui state changed, observers shall update their visual states.
+</div><span id='variant.UI_STATE_CHANGED' class='variant'><span id='UI_STATE_CHANGED.v' class='invisible'><code>UI_STATE_CHANGED</code></span></span><div class='docblock'><p>ui state changed, observers shall update their visual states.
 is sent for example by <code>behavior:richtext</code> when caret position/selection has changed.</p>
-</div></td><td></td></tr><tr><td id='variant.FORM_SUBMIT'><code>FORM_SUBMIT</code></td><td><div class='docblock'><p><code>behavior:form</code> detected submission event. <code>BEHAVIOR_EVENT_PARAMS::data</code> field contains data to be posted.
+</div><span id='variant.FORM_SUBMIT' class='variant'><span id='FORM_SUBMIT.v' class='invisible'><code>FORM_SUBMIT</code></span></span><div class='docblock'><p><code>behavior:form</code> detected submission event. <code>BEHAVIOR_EVENT_PARAMS::data</code> field contains data to be posted.
 <code>BEHAVIOR_EVENT_PARAMS::data</code> is of type <code>T_MAP</code> in this case key/value pairs of data that is about
 to be submitted. You can modify the data or discard submission by returning true from the handler.</p>
-</div></td><td></td></tr><tr><td id='variant.FORM_RESET'><code>FORM_RESET</code></td><td><div class='docblock'><p><code>behavior:form</code> detected reset event (from <code>button type=reset</code>). <code>BEHAVIOR_EVENT_PARAMS::data</code> field contains data to be reset.
+</div><span id='variant.FORM_RESET' class='variant'><span id='FORM_RESET.v' class='invisible'><code>FORM_RESET</code></span></span><div class='docblock'><p><code>behavior:form</code> detected reset event (from <code>button type=reset</code>). <code>BEHAVIOR_EVENT_PARAMS::data</code> field contains data to be reset.
 <code>BEHAVIOR_EVENT_PARAMS::data</code> is of type <code>T_MAP</code> in this case key/value pairs of data that is about
 to be rest. You can modify the data or discard reset by returning true from the handler.</p>
-</div></td><td></td></tr><tr><td id='variant.DOCUMENT_COMPLETE'><code>DOCUMENT_COMPLETE</code></td><td><div class='docblock'><p>document in <code>behavior:frame</code> or root document is complete.</p>
-</div></td><td></td></tr><tr><td id='variant.HISTORY_PUSH'><code>HISTORY_PUSH</code></td><td><div class='docblock'><p>requests to <code>behavior:history</code> (commands)</p>
-</div></td><td></td></tr><tr><td id='variant.HISTORY_DROP'><code>HISTORY_DROP</code></td><td></td><td></td></tr><tr><td id='variant.HISTORY_PRIOR'><code>HISTORY_PRIOR</code></td><td></td><td></td></tr><tr><td id='variant.HISTORY_NEXT'><code>HISTORY_NEXT</code></td><td></td><td></td></tr><tr><td id='variant.HISTORY_STATE_CHANGED'><code>HISTORY_STATE_CHANGED</code></td><td><div class='docblock'><p><code>behavior:history</code> notification - history stack has changed</p>
-</div></td><td></td></tr><tr><td id='variant.CLOSE_POPUP'><code>CLOSE_POPUP</code></td><td><div class='docblock'><p>close popup request,</p>
-</div></td><td></td></tr><tr><td id='variant.REQUEST_TOOLTIP'><code>REQUEST_TOOLTIP</code></td><td><div class='docblock'><p>request tooltip, <code>evt.source</code> &lt;- is the tooltip element.</p>
-</div></td><td></td></tr><tr><td id='variant.ANIMATION'><code>ANIMATION</code></td><td><div class='docblock'><p>animation started (<code>reason=1</code>) or ended(<code>reason=0</code>) on the element.</p>
-</div></td><td></td></tr><tr><td id='variant.DOCUMENT_CREATED'><code>DOCUMENT_CREATED</code></td><td><div class='docblock'><p>document created, script namespace initialized. <code>target</code> -&gt; the document</p>
-</div></td><td></td></tr><tr><td id='variant.DOCUMENT_CLOSE_REQUEST'><code>DOCUMENT_CLOSE_REQUEST</code></td><td><div class='docblock'><p>document is about to be closed, to cancel closing do: <code>evt.data = sciter::value(&quot;cancel&quot;)</code>;</p>
-</div></td><td></td></tr><tr><td id='variant.DOCUMENT_CLOSE'><code>DOCUMENT_CLOSE</code></td><td><div class='docblock'><p>last notification before document removal from the DOM</p>
-</div></td><td></td></tr><tr><td id='variant.DOCUMENT_READY'><code>DOCUMENT_READY</code></td><td><div class='docblock'><p>document has got DOM structure, styles and behaviors of DOM elements. Script loading run is complete at this moment.</p>
-</div></td><td></td></tr><tr><td id='variant.VIDEO_INITIALIZED'><code>VIDEO_INITIALIZED</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> &quot;ready&quot; notification</p>
-</div></td><td></td></tr><tr><td id='variant.VIDEO_STARTED'><code>VIDEO_STARTED</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> playback started notification</p>
-</div></td><td></td></tr><tr><td id='variant.VIDEO_STOPPED'><code>VIDEO_STOPPED</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> playback stoped/paused notification</p>
-</div></td><td></td></tr><tr><td id='variant.VIDEO_BIND_RQ'><code>VIDEO_BIND_RQ</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> request for frame source binding,
+</div><span id='variant.DOCUMENT_COMPLETE' class='variant'><span id='DOCUMENT_COMPLETE.v' class='invisible'><code>DOCUMENT_COMPLETE</code></span></span><div class='docblock'><p>document in <code>behavior:frame</code> or root document is complete.</p>
+</div><span id='variant.HISTORY_PUSH' class='variant'><span id='HISTORY_PUSH.v' class='invisible'><code>HISTORY_PUSH</code></span></span><div class='docblock'><p>requests to <code>behavior:history</code> (commands)</p>
+</div><span id='variant.HISTORY_DROP' class='variant'><span id='HISTORY_DROP.v' class='invisible'><code>HISTORY_DROP</code></span></span><span id='variant.HISTORY_PRIOR' class='variant'><span id='HISTORY_PRIOR.v' class='invisible'><code>HISTORY_PRIOR</code></span></span><span id='variant.HISTORY_NEXT' class='variant'><span id='HISTORY_NEXT.v' class='invisible'><code>HISTORY_NEXT</code></span></span><span id='variant.HISTORY_STATE_CHANGED' class='variant'><span id='HISTORY_STATE_CHANGED.v' class='invisible'><code>HISTORY_STATE_CHANGED</code></span></span><div class='docblock'><p><code>behavior:history</code> notification - history stack has changed</p>
+</div><span id='variant.CLOSE_POPUP' class='variant'><span id='CLOSE_POPUP.v' class='invisible'><code>CLOSE_POPUP</code></span></span><div class='docblock'><p>close popup request,</p>
+</div><span id='variant.REQUEST_TOOLTIP' class='variant'><span id='REQUEST_TOOLTIP.v' class='invisible'><code>REQUEST_TOOLTIP</code></span></span><div class='docblock'><p>request tooltip, <code>evt.source</code> &lt;- is the tooltip element.</p>
+</div><span id='variant.ANIMATION' class='variant'><span id='ANIMATION.v' class='invisible'><code>ANIMATION</code></span></span><div class='docblock'><p>animation started (<code>reason=1</code>) or ended(<code>reason=0</code>) on the element.</p>
+</div><span id='variant.DOCUMENT_CREATED' class='variant'><span id='DOCUMENT_CREATED.v' class='invisible'><code>DOCUMENT_CREATED</code></span></span><div class='docblock'><p>document created, script namespace initialized. <code>target</code> -&gt; the document</p>
+</div><span id='variant.DOCUMENT_CLOSE_REQUEST' class='variant'><span id='DOCUMENT_CLOSE_REQUEST.v' class='invisible'><code>DOCUMENT_CLOSE_REQUEST</code></span></span><div class='docblock'><p>document is about to be closed, to cancel closing do: <code>evt.data = sciter::value(&quot;cancel&quot;)</code>;</p>
+</div><span id='variant.DOCUMENT_CLOSE' class='variant'><span id='DOCUMENT_CLOSE.v' class='invisible'><code>DOCUMENT_CLOSE</code></span></span><div class='docblock'><p>last notification before document removal from the DOM</p>
+</div><span id='variant.DOCUMENT_READY' class='variant'><span id='DOCUMENT_READY.v' class='invisible'><code>DOCUMENT_READY</code></span></span><div class='docblock'><p>document has got DOM structure, styles and behaviors of DOM elements. Script loading run is complete at this moment.</p>
+</div><span id='variant.VIDEO_INITIALIZED' class='variant'><span id='VIDEO_INITIALIZED.v' class='invisible'><code>VIDEO_INITIALIZED</code></span></span><div class='docblock'><p><code>&lt;video&gt;</code> &quot;ready&quot; notification</p>
+</div><span id='variant.VIDEO_STARTED' class='variant'><span id='VIDEO_STARTED.v' class='invisible'><code>VIDEO_STARTED</code></span></span><div class='docblock'><p><code>&lt;video&gt;</code> playback started notification</p>
+</div><span id='variant.VIDEO_STOPPED' class='variant'><span id='VIDEO_STOPPED.v' class='invisible'><code>VIDEO_STOPPED</code></span></span><div class='docblock'><p><code>&lt;video&gt;</code> playback stoped/paused notification</p>
+</div><span id='variant.VIDEO_BIND_RQ' class='variant'><span id='VIDEO_BIND_RQ.v' class='invisible'><code>VIDEO_BIND_RQ</code></span></span><div class='docblock'><p><code>&lt;video&gt;</code> request for frame source binding,
 If you want to provide your own video frames source for the given target <code>&lt;video&gt;</code> element do the following:</p>
 
 <ol>
@@ -169,23 +172,38 @@ but this time with the <code>reason</code> field set to an instance of <code>sci
 call <code>sciter::video_destination::render_frame(...)</code> as soon as they are available
 call <code>sciter::video_destination::stop_streaming()</code> to stop the rendering (a.k.a. end of movie reached)</li>
 </ol>
-</div></td><td></td></tr><tr><td id='variant.PAGINATION_STARTS'><code>PAGINATION_STARTS</code></td><td><div class='docblock'><p><code>behavior:pager</code> starts pagination</p>
-</div></td><td></td></tr><tr><td id='variant.PAGINATION_PAGE'><code>PAGINATION_PAGE</code></td><td><div class='docblock'><p><code>behavior:pager</code> paginated page no, reason -&gt; page no</p>
-</div></td><td></td></tr><tr><td id='variant.PAGINATION_ENDS'><code>PAGINATION_ENDS</code></td><td><div class='docblock'><p><code>behavior:pager</code> end pagination, reason -&gt; total pages</p>
-</div></td><td></td></tr><tr><td id='variant.FIRST_APPLICATION_EVENT_CODE'><code>FIRST_APPLICATION_EVENT_CODE</code></td><td><div class='docblock'><p>all custom event codes shall be greater than this number. All codes below this will be used
+</div><span id='variant.PAGINATION_STARTS' class='variant'><span id='PAGINATION_STARTS.v' class='invisible'><code>PAGINATION_STARTS</code></span></span><div class='docblock'><p><code>behavior:pager</code> starts pagination</p>
+</div><span id='variant.PAGINATION_PAGE' class='variant'><span id='PAGINATION_PAGE.v' class='invisible'><code>PAGINATION_PAGE</code></span></span><div class='docblock'><p><code>behavior:pager</code> paginated page no, reason -&gt; page no</p>
+</div><span id='variant.PAGINATION_ENDS' class='variant'><span id='PAGINATION_ENDS.v' class='invisible'><code>PAGINATION_ENDS</code></span></span><div class='docblock'><p><code>behavior:pager</code> end pagination, reason -&gt; total pages</p>
+</div><span id='variant.FIRST_APPLICATION_EVENT_CODE' class='variant'><span id='FIRST_APPLICATION_EVENT_CODE.v' class='invisible'><code>FIRST_APPLICATION_EVENT_CODE</code></span></span><div class='docblock'><p>all custom event codes shall be greater than this number. All codes below this will be used
 solely by application - Sciter will not intrepret it and will do just dispatching.
 To send event notifications with  these codes use <code>SciterSend</code>/<code>PostEvent</code> API.</p>
-</div></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h4>
-<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ne' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='core::cmp::PartialOrd'>PartialOrd</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.partial_cmp' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='core::cmp::Ordering'>Ordering</a>&gt;</code></h4>
-<h4 id='method.lt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.le' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.gt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ge' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='trait core::marker::Copy'>Copy</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#149' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='trait core::clone::Clone'>Clone</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#149' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='trait core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#150' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='struct core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='type core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='trait core::cmp::PartialOrd'>PartialOrd</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#150' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.partial_cmp' class='method'><span id='partial_cmp.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='enum core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='enum core::cmp::Ordering'>Ordering</a>&gt;</code></span></h4>
+<div class='docblock'><p>This method returns an ordering between <code>self</code> and <code>other</code> values if one exists. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp">Read more</a></p>
+</div><h4 id='method.lt' class='method'><span id='lt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests less than (for <code>self</code> and <code>other</code>) and is used by the <code>&lt;</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt">Read more</a></p>
+</div><h4 id='method.le' class='method'><span id='le.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests less than or equal to (for <code>self</code> and <code>other</code>) and is used by the <code>&lt;=</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le">Read more</a></p>
+</div><h4 id='method.gt' class='method'><span id='gt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests greater than (for <code>self</code> and <code>other</code>) and is used by the <code>&gt;</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt">Read more</a></p>
+</div><h4 id='method.ge' class='method'><span id='ge.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests greater than or equal to (for <code>self</code> and <code>other</code>) and is used by the <code>&gt;=</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='trait core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/sciter/capi/scbehavior.rs.html#150' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='enum sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -208,6 +226,8 @@ To send event notifications with  these codes use <code>SciterSend</code>/<code>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -239,11 +259,9 @@ To send event notifications with  these codes use <code>SciterSend</code>/<code>
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

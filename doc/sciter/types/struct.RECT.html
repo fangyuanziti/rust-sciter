@@ -9,10 +9,12 @@
 
     <title>sciter::types::RECT - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'RECT', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,19 +48,29 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1444' class='srclink' href='../../src/sciter/capi/sctypes.rs.html#55-60' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct RECT {
-    pub left: <a class='type' href='../../sciter/types/type.LONG.html' title='sciter::types::LONG'>LONG</a>,
-    pub top: <a class='type' href='../../sciter/types/type.LONG.html' title='sciter::types::LONG'>LONG</a>,
-    pub right: <a class='type' href='../../sciter/types/type.LONG.html' title='sciter::types::LONG'>LONG</a>,
-    pub bottom: <a class='type' href='../../sciter/types/type.LONG.html' title='sciter::types::LONG'>LONG</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                             <td id='structfield.left'><code>left</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.top'><code>top</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.right'><code>right</code></td><td></td></tr><tr class='stab '>
-                             <td id='structfield.bottom'><code>bottom</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../../sciter/types/struct.RECT.html' title='sciter::types::RECT'>RECT</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../sciter/types/struct.RECT.html' title='sciter::types::RECT'>RECT</a></code></h4>
-</div></section>
+               </span><a class='srclink' href='../../src/sciter/capi/sctypes.rs.html#55-60' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct RECT {
+    pub left: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a>,
+    pub top: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a>,
+    pub right: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a>,
+    pub bottom: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a>,
+}</pre><h2 class='fields'>Fields</h2><span id='structfield.left' class='structfield'>
+                           <span id='left.v' class='invisible'>
+                           <code>left: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a></code>
+                           </span></span><span id='structfield.top' class='structfield'>
+                           <span id='top.v' class='invisible'>
+                           <code>top: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a></code>
+                           </span></span><span id='structfield.right' class='structfield'>
+                           <span id='right.v' class='invisible'>
+                           <code>right: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a></code>
+                           </span></span><span id='structfield.bottom' class='structfield'>
+                           <span id='bottom.v' class='invisible'>
+                           <code>bottom: <a class='type' href='../../sciter/types/type.LONG.html' title='type sciter::types::LONG'>LONG</a></code>
+                           </span></span><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='trait core::default::Default'>Default</a> for <a class='struct' href='../../sciter/types/struct.RECT.html' title='struct sciter::types::RECT'>RECT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/sctypes.rs.html#54' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class='method'><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../sciter/types/struct.RECT.html' title='struct sciter::types::RECT'>RECT</a></code></span></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -81,6 +93,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -112,11 +126,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

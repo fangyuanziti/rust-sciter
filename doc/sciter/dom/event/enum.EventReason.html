@@ -9,10 +9,12 @@
 
     <title>sciter::dom::event::EventReason - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a href='index.html'>event</a></p><script>window.sidebarCurrent = {name: 'EventReason', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,17 +48,17 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-2940' class='srclink' href='../../../src/sciter/dom.rs.html#1050-1057' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/sciter/dom.rs.html#1092-1099' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum EventReason {
-    General(<a class='enum' href='../../../sciter/dom/event/enum.EVENT_REASON.html' title='sciter::dom::event::EVENT_REASON'>EVENT_REASON</a>),
-    EditChanged(<a class='enum' href='../../../sciter/dom/event/enum.EDIT_CHANGED_REASON.html' title='sciter::dom::event::EDIT_CHANGED_REASON'>EDIT_CHANGED_REASON</a>),
-    VideoBind(<a class='type' href='../../../sciter/types/type.LPVOID.html' title='sciter::types::LPVOID'>LPVOID</a>),
+    General(<a class='enum' href='../../../sciter/dom/event/enum.CLICK_REASON.html' title='enum sciter::dom::event::CLICK_REASON'>CLICK_REASON</a>),
+    EditChanged(<a class='enum' href='../../../sciter/dom/event/enum.EDIT_CHANGED_REASON.html' title='enum sciter::dom::event::EDIT_CHANGED_REASON'>EDIT_CHANGED_REASON</a>),
+    VideoBind(<a class='type' href='../../../sciter/types/type.LPVOID.html' title='type sciter::types::LPVOID'>LPVOID</a>),
 }</pre><div class='docblock'><p>UI action causing change.</p>
 </div><h2 class='variants'>Variants</h2>
-<table class='variants_table'><tr><td id='variant.General'><code>General</code></td><td><div class='docblock'><p>General event source triggers (by mouse, key or synthesized).</p>
-</div></td><td></td></tr><tr><td id='variant.EditChanged'><code>EditChanged</code></td><td><div class='docblock'><p>Edit control change trigger.</p>
-</div></td><td></td></tr><tr><td id='variant.VideoBind'><code>VideoBind</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> request for frame source binding (<em>unsupported yet</em>).</p>
-</div></td><td></td></tr></table></section>
+<span id='variant.General' class='variant'><span id='General.v' class='invisible'><code>General(<a class='enum' href='../../../sciter/dom/event/enum.CLICK_REASON.html' title='enum sciter::dom::event::CLICK_REASON'>CLICK_REASON</a>)</code></span></span><div class='docblock'><p>General event source triggers (by mouse, key or synthesized).</p>
+</div><span id='variant.EditChanged' class='variant'><span id='EditChanged.v' class='invisible'><code>EditChanged(<a class='enum' href='../../../sciter/dom/event/enum.EDIT_CHANGED_REASON.html' title='enum sciter::dom::event::EDIT_CHANGED_REASON'>EDIT_CHANGED_REASON</a>)</code></span></span><div class='docblock'><p>Edit control change trigger.</p>
+</div><span id='variant.VideoBind' class='variant'><span id='VideoBind.v' class='invisible'><code>VideoBind(<a class='type' href='../../../sciter/types/type.LPVOID.html' title='type sciter::types::LPVOID'>LPVOID</a>)</code></span></span><div class='docblock'><p><code>&lt;video&gt;</code> request for frame source binding (<em>unsupported yet</em>).</p>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -79,6 +81,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -110,11 +114,9 @@
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

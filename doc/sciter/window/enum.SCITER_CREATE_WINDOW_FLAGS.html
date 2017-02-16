@@ -9,10 +9,12 @@
 
     <title>sciter::window::SCITER_CREATE_WINDOW_FLAGS - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>window</a></p><script>window.sidebarCurrent = {name: 'SCITER_CREATE_WINDOW_FLAGS', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,8 +48,9 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1051' class='srclink' href='../../src/sciter/capi/scdef.rs.html#98-121' title='goto source code'>[src]</a></span></h1>
-<pre class='rust enum'>pub enum SCITER_CREATE_WINDOW_FLAGS {
+               </span><a class='srclink' href='../../src/sciter/capi/scdef.rs.html#108-131' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'><div class="docblock attributes">#[repr(C)]
+</div>pub enum SCITER_CREATE_WINDOW_FLAGS {
     SW_CHILD,
     SW_TITLEBAR,
     SW_RESIZEABLE,
@@ -61,29 +64,33 @@
     SW_OWNS_VM,
 }</pre><div class='docblock'><p>Window flags</p>
 </div><h2 class='variants'>Variants</h2>
-<table class='variants_table'><tr><td id='variant.SW_CHILD'><code>SW_CHILD</code></td><td><div class='docblock'><p>child window only, if this flag is set all other flags ignored</p>
-</div></td><td></td></tr><tr><td id='variant.SW_TITLEBAR'><code>SW_TITLEBAR</code></td><td><div class='docblock'><p>toplevel window, has titlebar</p>
-</div></td><td></td></tr><tr><td id='variant.SW_RESIZEABLE'><code>SW_RESIZEABLE</code></td><td><div class='docblock'><p>has resizeable frame</p>
-</div></td><td></td></tr><tr><td id='variant.SW_TOOL'><code>SW_TOOL</code></td><td><div class='docblock'><p>is tool window</p>
-</div></td><td></td></tr><tr><td id='variant.SW_CONTROLS'><code>SW_CONTROLS</code></td><td><div class='docblock'><p>has minimize / maximize buttons</p>
-</div></td><td></td></tr><tr><td id='variant.SW_GLASSY'><code>SW_GLASSY</code></td><td><div class='docblock'><p>glassy window ( DwmExtendFrameIntoClientArea on windows )</p>
-</div></td><td></td></tr><tr><td id='variant.SW_ALPHA'><code>SW_ALPHA</code></td><td><div class='docblock'><p>transparent window ( e.g. WS_EX_LAYERED on Windows )</p>
-</div></td><td></td></tr><tr><td id='variant.SW_MAIN'><code>SW_MAIN</code></td><td><div class='docblock'><p>main window of the app, will terminate the app on close</p>
-</div></td><td></td></tr><tr><td id='variant.SW_POPUP'><code>SW_POPUP</code></td><td><div class='docblock'><p>the window is created as topmost window.</p>
-</div></td><td></td></tr><tr><td id='variant.SW_ENABLE_DEBUG'><code>SW_ENABLE_DEBUG</code></td><td><div class='docblock'><p>make this window inspector ready</p>
-</div></td><td></td></tr><tr><td id='variant.SW_OWNS_VM'><code>SW_OWNS_VM</code></td><td><div class='docblock'><p>it has its own script VM</p>
-</div></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h3><div class='impl-items'><h4 id='method.main_window' class='method'><code>fn <a href='#method.main_window' class='fnname'>main_window</a>(resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+<span id='variant.SW_CHILD' class='variant'><span id='SW_CHILD.v' class='invisible'><code>SW_CHILD</code></span></span><div class='docblock'><p>child window only, if this flag is set all other flags ignored</p>
+</div><span id='variant.SW_TITLEBAR' class='variant'><span id='SW_TITLEBAR.v' class='invisible'><code>SW_TITLEBAR</code></span></span><div class='docblock'><p>toplevel window, has titlebar</p>
+</div><span id='variant.SW_RESIZEABLE' class='variant'><span id='SW_RESIZEABLE.v' class='invisible'><code>SW_RESIZEABLE</code></span></span><div class='docblock'><p>has resizeable frame</p>
+</div><span id='variant.SW_TOOL' class='variant'><span id='SW_TOOL.v' class='invisible'><code>SW_TOOL</code></span></span><div class='docblock'><p>is tool window</p>
+</div><span id='variant.SW_CONTROLS' class='variant'><span id='SW_CONTROLS.v' class='invisible'><code>SW_CONTROLS</code></span></span><div class='docblock'><p>has minimize / maximize buttons</p>
+</div><span id='variant.SW_GLASSY' class='variant'><span id='SW_GLASSY.v' class='invisible'><code>SW_GLASSY</code></span></span><div class='docblock'><p>glassy window ( DwmExtendFrameIntoClientArea on windows )</p>
+</div><span id='variant.SW_ALPHA' class='variant'><span id='SW_ALPHA.v' class='invisible'><code>SW_ALPHA</code></span></span><div class='docblock'><p>transparent window ( e.g. WS_EX_LAYERED on Windows )</p>
+</div><span id='variant.SW_MAIN' class='variant'><span id='SW_MAIN.v' class='invisible'><code>SW_MAIN</code></span></span><div class='docblock'><p>main window of the app, will terminate the app on close</p>
+</div><span id='variant.SW_POPUP' class='variant'><span id='SW_POPUP.v' class='invisible'><code>SW_POPUP</code></span></span><div class='docblock'><p>the window is created as topmost window.</p>
+</div><span id='variant.SW_ENABLE_DEBUG' class='variant'><span id='SW_ENABLE_DEBUG.v' class='invisible'><code>SW_ENABLE_DEBUG</code></span></span><div class='docblock'><p>make this window inspector ready</p>
+</div><span id='variant.SW_OWNS_VM' class='variant'><span id='SW_OWNS_VM.v' class='invisible'><code>SW_OWNS_VM</code></span></span><div class='docblock'><p>it has its own script VM</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scdef.rs.html#133-174' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.main_window' class='method'><span id='main_window.v' class='invisible'><code>fn <a href='#method.main_window' class='fnname'>main_window</a>(resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span></h4>
 <div class='docblock'><p>Main application window.</p>
-</div><h4 id='method.child_window' class='method'><code>fn <a href='#method.child_window' class='fnname'>child_window</a>() -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+</div><h4 id='method.child_window' class='method'><span id='child_window.v' class='invisible'><code>fn <a href='#method.child_window' class='fnname'>child_window</a>() -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span></h4>
 <div class='docblock'><p>Child window.</p>
-</div><h4 id='method.popup_window' class='method'><code>fn <a href='#method.popup_window' class='fnname'>popup_window</a>(title: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, minmaxclose: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+</div><h4 id='method.popup_window' class='method'><span id='popup_window.v' class='invisible'><code>fn <a href='#method.popup_window' class='fnname'>popup_window</a>(title: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minmaxclose: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span></h4>
 <div class='docblock'><p>Popup window.</p>
-</div><h4 id='method.tool_window' class='method'><code>fn <a href='#method.tool_window' class='fnname'>tool_window</a>(resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+</div><h4 id='method.tool_window' class='method'><span id='tool_window.v' class='invisible'><code>fn <a href='#method.tool_window' class='fnname'>tool_window</a>(resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span></h4>
 <div class='docblock'><p>Tool window.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a> for <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h3><div class='docblock'><p>Flags can be OR&#39;ed as <code>SW_MAIN|SW_ALPHA</code>.</p>
-</div><div class='impl-items'><h4 id='associatedtype.Output' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#associatedtype.Output' class='type'>Output</a> = <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
-<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#tymethod.bitor' class='fnname'>bitor</a>(self, rhs: Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>Output</a>) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>Output</a></code></h4>
-</div></section>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='trait core::ops::BitOr'>BitOr</a> for <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scdef.rs.html#177-183' title='goto source code'>[src]</a></span></h3>
+<div class='docblock'><p>Flags can be OR&#39;ed as <code>SW_MAIN|SW_ALPHA</code>.</p>
+</div><div class='impl-items'><h4 id='associatedtype.Output' class='type'><span id='Output.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#associatedtype.Output' class='type'>Output</a> = <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>|</code> operator</p>
+</div><h4 id='method.bitor' class='method'><span id='bitor.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#tymethod.bitor' class='fnname'>bitor</a>(self, rhs: Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='trait core::ops::BitOr'>Output</a>) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='trait core::ops::BitOr'>Output</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>|</code> operator</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -106,6 +113,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -137,11 +146,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

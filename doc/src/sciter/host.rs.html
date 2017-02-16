@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `host.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\host.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>host.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -395,15 +397,20 @@
 <span id="352">352</span>
 <span id="353">353</span>
 <span id="354">354</span>
+<span id="355">355</span>
+<span id="356">356</span>
+<span id="357">357</span>
+<span id="358">358</span>
+<span id="359">359</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Sciter host application helpers.</span>
 
 <span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
 <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>screquest</span>::<span class='ident'>HREQUEST</span>;
 <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>schandler</span>::<span class='ident'>NativeHandler</span>;
 <span class='kw'>use</span> <span class='ident'>dom</span>::<span class='ident'>event</span>::<span class='ident'>EventHandler</span>;
-<span class='kw'>use</span> <span class='ident'>eventhandler</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>eventhandler</span>::<span class='kw-2'>*</span>;
 <span class='kw'>use</span> <span class='ident'>value</span>::{<span class='ident'>Value</span>};
 
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::{<span class='ident'>SCITER_RT_OPTIONS</span>, <span class='ident'>SCRIPT_RUNTIME_FEATURES</span>, <span class='ident'>GFX_LAYER</span>};
@@ -466,11 +473,11 @@ Note: This handler should be registere before any `load_html` call in order to s
 	<span class='kw'>fn</span> <span class='ident'>on_data_load</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pnm</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>SCN_LOAD_DATA</span>) <span class='op'>-&gt;</span> <span class='ident'>LOAD_RESULT</span> { <span class='kw'>return</span> <span class='ident'>LOAD_RESULT</span>::<span class='ident'>LOAD_DEFAULT</span>; }
 
 	<span class='doccomment'>/// This notification indicates that external data (for example image) download process completed.</span>
-	<span class='kw'>fn</span> <span class='ident'>on_data_loaded</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pnm</span>: <span class='kw-2'>&amp;</span> <span class='ident'>SCN_DATA_LOADED</span>) { }
+	<span class='kw'>fn</span> <span class='ident'>on_data_loaded</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pnm</span>: <span class='op'>&amp;</span> <span class='ident'>SCN_DATA_LOADED</span>) { }
 
 	<span class='doccomment'>/// This notification is sent on parsing the document and while processing elements</span>
 	<span class='doccomment'>/// having non empty `style.behavior` attribute value.</span>
-	<span class='kw'>fn</span> <span class='ident'>on_attach_behavior</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pnm</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>SCN_ATTACH_BEHAVIOR</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='kw'>return</span> <span class='boolval'>false</span>; }
+	<span class='kw'>fn</span> <span class='ident'>on_attach_behavior</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pnm</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>SCN_ATTACH_BEHAVIOR</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> { <span class='kw'>return</span> <span class='bool-val'>false</span>; }
 
 	<span class='doccomment'>/// This notification is sent when instance of the engine is destroyed.</span>
 	<span class='kw'>fn</span> <span class='ident'>on_engine_destroyed</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) { }
@@ -539,9 +546,9 @@ Note: This handler should be registere before any `load_html` call in order to s
 
 	<span class='doccomment'>/// Set callback for Sciter engine events.</span>
 	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>setup_callback</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span>, <span class='ident'>handler</span>: <span class='ident'>T</span>) {
-		<span class='op'>*</span><span class='self'>self</span>.<span class='ident'>handler</span>.<span class='ident'>borrow_mut</span>() <span class='op'>=</span> <span class='ident'>NativeHandler</span>::<span class='ident'>from</span>(<span class='ident'>handler</span>);
+		<span class='kw-2'>*</span><span class='self'>self</span>.<span class='ident'>handler</span>.<span class='ident'>borrow_mut</span>() <span class='op'>=</span> <span class='ident'>NativeHandler</span>::<span class='ident'>from</span>(<span class='ident'>handler</span>);
 		<span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>set</span>(<span class='ident'>hwnd</span>);
-		<span class='self'>self</span>.<span class='ident'>enable_debug</span>(<span class='boolval'>true</span>);
+		<span class='self'>self</span>.<span class='ident'>enable_debug</span>(<span class='bool-val'>true</span>);
 		(<span class='ident'>_API</span>.<span class='ident'>SciterSetCallback</span>)(<span class='ident'>hwnd</span>, <span class='ident'>_on_handle_notification</span>::<span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>, <span class='self'>self</span>.<span class='ident'>handler</span>.<span class='ident'>borrow</span>().<span class='ident'>as_mut_ptr</span>());
 		(<span class='ident'>_API</span>.<span class='ident'>SciterSetupDebugOutput</span>)(<span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>HWINDOW</span>, <span class='self'>self</span>.<span class='ident'>handler</span>.<span class='ident'>borrow</span>().<span class='ident'>as_mut_ptr</span>(), <span class='ident'>_on_debug_notification</span>::<span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>);
 	}
@@ -590,16 +597,21 @@ Note: This handler should be registere before any `load_html` call in order to s
 	}
 
 	<span class='doccomment'>/// This function is used as response to `SC_LOAD_DATA` request.</span>
-	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>data_ready</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>uri</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>request_id</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>HREQUEST</span><span class='op'>&gt;</span>) {
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>data_ready</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>uri</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) {
 		<span class='kw'>let</span> (<span class='ident'>s</span>,_) <span class='op'>=</span> <span class='macro'>s2w</span><span class='macro'>!</span>(<span class='ident'>uri</span>);
-		<span class='kw'>match</span> <span class='ident'>request_id</span> {
-			<span class='prelude-val'>Some</span>(<span class='ident'>req</span>) <span class='op'>=&gt;</span> {
-				(<span class='ident'>_API</span>.<span class='ident'>SciterDataReadyAsync</span>)(<span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>get</span>(), <span class='ident'>s</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>req</span>)
-			},
-			<span class='prelude-val'>None</span> <span class='op'>=&gt;</span> {
-				(<span class='ident'>_API</span>.<span class='ident'>SciterDataReady</span>)(<span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>get</span>(), <span class='ident'>s</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>UINT</span>)
-			},
-		};
+		(<span class='ident'>_API</span>.<span class='ident'>SciterDataReady</span>)(<span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>get</span>(), <span class='ident'>s</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>UINT</span>);
+	}
+
+	<span class='doccomment'>/// Use this function outside of `SCN_LOAD_DATA` request.</span>
+	<span class='doccomment'>///</span>
+	<span class='doccomment'>/// It can be used for the two purposes:</span>
+	<span class='doccomment'>///</span>
+	<span class='doccomment'>/// 1. Asynchronious resource loading in respect of `SCN_LOAD_DATA` requests (you must provide `request_id` in this case).</span>
+	<span class='doccomment'>/// 2. Refresh of already loaded resource (for example, dynamic image updates).</span>
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>data_ready_async</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>uri</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>request_id</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>HREQUEST</span><span class='op'>&gt;</span>) {
+		<span class='kw'>let</span> (<span class='ident'>s</span>,_) <span class='op'>=</span> <span class='macro'>s2w</span><span class='macro'>!</span>(<span class='ident'>uri</span>);
+		<span class='kw'>let</span> <span class='ident'>req</span> <span class='op'>=</span> <span class='ident'>request_id</span>.<span class='ident'>unwrap_or</span>(::<span class='ident'>std</span>::<span class='ident'>ptr</span>::<span class='ident'>null_mut</span>());
+		(<span class='ident'>_API</span>.<span class='ident'>SciterDataReadyAsync</span>)(<span class='self'>self</span>.<span class='ident'>hwnd</span>.<span class='ident'>get</span>(), <span class='ident'>s</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>data</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>req</span>);
 	}
 
 	<span class='doccomment'>/// Evaluate script in context of current document.</span>
@@ -688,7 +700,7 @@ Note: This handler should be registere before any `load_html` call in order to s
 
 <span class='comment'>// Sciter notification handler.</span>
 <span class='comment'>// This comes as free function due to https://github.com/rust-lang/rust/issues/32364</span>
-<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>_on_handle_notification</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='ident'>pnm</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>
+<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>_on_handle_notification</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='ident'>pnm</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>
 {
 	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::{<span class='ident'>SCITER_NOTIFICATION</span>, <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>};
 
@@ -696,28 +708,28 @@ Note: This handler should be registere before any `load_html` call in order to s
 	<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>boxed</span> <span class='op'>=</span> <span class='ident'>NativeHandler</span>::<span class='ident'>from_mut_ptr3</span>(<span class='ident'>param</span>);
 
 	<span class='comment'>// process notification</span>
-	<span class='kw'>let</span> <span class='ident'>nm</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='ident'>pnm</span> };
+	<span class='kw'>let</span> <span class='ident'>nm</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='kw-2'>*</span><span class='ident'>pnm</span> };
 	<span class='kw'>let</span> <span class='ident'>code</span>: <span class='ident'>SCITER_NOTIFICATION</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>nm</span>.<span class='ident'>code</span>) };
 
 	<span class='kw'>let</span> <span class='ident'>result</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>code</span> {
 		<span class='ident'>SCITER_NOTIFICATION</span>::<span class='ident'>SC_LOAD_DATA</span> <span class='op'>=&gt;</span> {
 			<span class='kw'>let</span> <span class='ident'>me</span> <span class='op'>=</span> <span class='ident'>boxed</span>.<span class='ident'>as_mut</span>::<span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>();
-			<span class='kw'>let</span> <span class='ident'>scnm</span> <span class='op'>=</span> <span class='ident'>pnm</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCN_LOAD_DATA</span>;
-			<span class='kw'>let</span> <span class='ident'>re</span> <span class='op'>=</span> <span class='ident'>me</span>.<span class='ident'>on_data_load</span>(<span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='ident'>scnm</span>} );
+			<span class='kw'>let</span> <span class='ident'>scnm</span> <span class='op'>=</span> <span class='ident'>pnm</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCN_LOAD_DATA</span>;
+			<span class='kw'>let</span> <span class='ident'>re</span> <span class='op'>=</span> <span class='ident'>me</span>.<span class='ident'>on_data_load</span>(<span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='kw-2'>*</span><span class='ident'>scnm</span>} );
 			<span class='ident'>re</span> <span class='kw'>as</span> <span class='ident'>UINT</span>
 		},
 
 		<span class='ident'>SCITER_NOTIFICATION</span>::<span class='ident'>SC_DATA_LOADED</span> <span class='op'>=&gt;</span> {
 			<span class='kw'>let</span> <span class='ident'>me</span> <span class='op'>=</span> <span class='ident'>boxed</span>.<span class='ident'>as_mut</span>::<span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>();
-			<span class='kw'>let</span> <span class='ident'>scnm</span> <span class='op'>=</span> <span class='ident'>pnm</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCN_DATA_LOADED</span>;
-			<span class='ident'>me</span>.<span class='ident'>on_data_loaded</span>(<span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='ident'>scnm</span>} );
+			<span class='kw'>let</span> <span class='ident'>scnm</span> <span class='op'>=</span> <span class='ident'>pnm</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCN_DATA_LOADED</span>;
+			<span class='ident'>me</span>.<span class='ident'>on_data_loaded</span>(<span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='kw-2'>*</span><span class='ident'>scnm</span>} );
 			<span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>UINT</span>
 		},
 
 		<span class='ident'>SCITER_NOTIFICATION</span>::<span class='ident'>SC_ATTACH_BEHAVIOR</span> <span class='op'>=&gt;</span> {
 			<span class='kw'>let</span> <span class='ident'>me</span> <span class='op'>=</span> <span class='ident'>boxed</span>.<span class='ident'>as_mut</span>::<span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>();
-			<span class='kw'>let</span> <span class='ident'>scnm</span> <span class='op'>=</span> <span class='ident'>pnm</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCN_ATTACH_BEHAVIOR</span>;
-			<span class='kw'>let</span> <span class='ident'>re</span> <span class='op'>=</span> <span class='ident'>me</span>.<span class='ident'>on_attach_behavior</span>(<span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='ident'>scnm</span>} );
+			<span class='kw'>let</span> <span class='ident'>scnm</span> <span class='op'>=</span> <span class='ident'>pnm</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCN_ATTACH_BEHAVIOR</span>;
+			<span class='kw'>let</span> <span class='ident'>re</span> <span class='op'>=</span> <span class='ident'>me</span>.<span class='ident'>on_attach_behavior</span>(<span class='kw'>unsafe</span> { <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='kw-2'>*</span><span class='ident'>scnm</span>} );
 			<span class='ident'>re</span> <span class='kw'>as</span> <span class='ident'>UINT</span>
 		},
 
@@ -774,6 +786,8 @@ Note: This handler should be registere before any `load_html` call in order to s
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -805,11 +819,9 @@ Note: This handler should be registere before any `load_html` call in order to s
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

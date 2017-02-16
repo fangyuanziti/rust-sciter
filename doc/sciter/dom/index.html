@@ -9,10 +9,12 @@
 
     <title>sciter::dom - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a></p><script>window.sidebarCurrent = {name: 'dom', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </nav>
 
@@ -46,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-2510' class='srclink' href='../../src/sciter/dom.rs.html#1-1113' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/sciter/dom.rs.html#1-1155' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>DOM access methods.</p>
 
 <h2 id='introduction' class='section-header'><a href='#introduction'>Introduction.</a></h2>
@@ -163,50 +165,50 @@ and value of <code>&lt;form&gt;</code> element is a collection (name/value map) 
 }
 </code></pre>
 </div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>pub use dom::event::<a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>;</code></td></tr><tr><td><code>pub use dom::event::<a class='enum' href='../../sciter/dom/event/enum.EventReason.html' title='sciter::dom::event::EventReason'>EventReason</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table><tr><td><code>pub use dom::event::<a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='trait sciter::dom::event::EventHandler'>EventHandler</a>;</code></td></tr><tr><td><code>pub use dom::event::<a class='enum' href='../../sciter/dom/event/enum.EventReason.html' title='enum sciter::dom::event::EventReason'>EventReason</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='mod' href='event/index.html'
-                                  title='sciter::dom::event'>event</a></td>
-                           <td class='docblock short'>
+                                  title='mod sciter::dom::event'>event</a></td>
+                           <td class='docblock-short'>
                                 <p>Behaviors support (a.k.a windowless controls).</p>
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.Element.html'
-                                  title='sciter::dom::Element'>Element</a></td>
-                           <td class='docblock short'>
+                                  title='struct sciter::dom::Element'>Element</a></td>
+                           <td class='docblock-short'>
                                 <p>DOM element wrapper. See the module-level documentation also.</p>
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.SCDOM_RESULT.html'
-                                  title='sciter::dom::SCDOM_RESULT'>SCDOM_RESULT</a></td>
-                           <td class='docblock short'>
+                                  title='enum sciter::dom::SCDOM_RESULT'>SCDOM_RESULT</a></td>
+                           <td class='docblock-short'>
                                 <p>Type of the result value for Sciter DOM functions.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.SET_ELEMENT_HTML.html'
-                                  title='sciter::dom::SET_ELEMENT_HTML'>SET_ELEMENT_HTML</a></td>
-                           <td class='docblock short'>
+                                  title='enum sciter::dom::SET_ELEMENT_HTML'>SET_ELEMENT_HTML</a></td>
+                           <td class='docblock-short'>
                                 <p><code>dom::Element.set_html()</code> options.</p>
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.HELEMENT.html'
-                                  title='sciter::dom::HELEMENT'>HELEMENT</a></td>
-                           <td class='docblock short'>
+                                  title='type sciter::dom::HELEMENT'>HELEMENT</a></td>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.Result.html'
-                                  title='sciter::dom::Result'>Result</a></td>
-                           <td class='docblock short'>
+                                  title='type sciter::dom::Result'>Result</a></td>
+                           <td class='docblock-short'>
                                 <p>A specialized <code>Result</code> type for DOM operations.</p>
                            </td>
                        </tr></table></section>
@@ -232,6 +234,8 @@ and value of <code>&lt;form&gt;</code> element is a collection (name/value map) 
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -263,11 +267,9 @@ and value of <code>&lt;form&gt;</code> element is a collection (name/value map) 
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

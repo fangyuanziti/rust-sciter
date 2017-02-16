@@ -9,10 +9,12 @@
 
     <title>sciter::host::SCN_ATTACH_BEHAVIOR - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>host</a></p><script>window.sidebarCurrent = {name: 'SCN_ATTACH_BEHAVIOR', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,31 +48,45 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1188' class='srclink' href='../../src/sciter/capi/scdef.rs.html#260-275' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct SCN_ATTACH_BEHAVIOR {
-    pub code: <a class='type' href='../../sciter/types/type.UINT.html' title='sciter::types::UINT'>UINT</a>,
-    pub hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>,
-    pub element: <a class='type' href='../../sciter/dom/type.HELEMENT.html' title='sciter::dom::HELEMENT'>HELEMENT</a>,
-    pub name: <a class='type' href='../../sciter/types/type.LPCSTR.html' title='sciter::types::LPCSTR'>LPCSTR</a>,
-    pub elementProc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../sciter/types/type.ElementEventProc.html' title='sciter::types::ElementEventProc'>ElementEventProc</a>,
-    pub elementTag: <a class='type' href='../../sciter/types/type.LPVOID.html' title='sciter::types::LPVOID'>LPVOID</a>,
+               </span><a class='srclink' href='../../src/sciter/capi/scdef.rs.html#270-285' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct SCN_ATTACH_BEHAVIOR {
+    pub code: <a class='type' href='../../sciter/types/type.UINT.html' title='type sciter::types::UINT'>UINT</a>,
+    pub hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a>,
+    pub element: <a class='type' href='../../sciter/dom/type.HELEMENT.html' title='type sciter::dom::HELEMENT'>HELEMENT</a>,
+    pub name: <a class='type' href='../../sciter/types/type.LPCSTR.html' title='type sciter::types::LPCSTR'>LPCSTR</a>,
+    pub elementProc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../sciter/types/type.ElementEventProc.html' title='type sciter::types::ElementEventProc'>ElementEventProc</a>,
+    pub elementTag: <a class='type' href='../../sciter/types/type.LPVOID.html' title='type sciter::types::LPVOID'>LPVOID</a>,
 }</pre><div class='docblock'><p>This notification is sent on parsing the document and while processing elements
 having non empty <code>style.behavior</code> attribute value.</p>
-</div><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                             <td id='structfield.code'><code>code</code></td><td><div class='docblock'><p><code>SC_ATTACH_BEHAVIOR</code> here.</p>
-</div></td></tr><tr class='stab '>
-                             <td id='structfield.hwnd'><code>hwnd</code></td><td><div class='docblock'><p><code>HWINDOW</code> of the window this callback was attached to.</p>
-</div></td></tr><tr class='stab '>
-                             <td id='structfield.element'><code>element</code></td><td><div class='docblock'><p>[in] target DOM element handle</p>
-</div></td></tr><tr class='stab '>
-                             <td id='structfield.name'><code>name</code></td><td><div class='docblock'><p>[in] zero terminated string, string appears as value of CSS <code>behavior:</code> attribute.</p>
-</div></td></tr><tr class='stab '>
-                             <td id='structfield.elementProc'><code>elementProc</code></td><td><div class='docblock'><p>[out] pointer to ElementEventProc function.</p>
-</div></td></tr><tr class='stab '>
-                             <td id='structfield.elementTag'><code>elementTag</code></td><td><div class='docblock'><p>[out] tag value, passed as is into pointer ElementEventProc function.</p>
-</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../sciter/host/struct.SCN_ATTACH_BEHAVIOR.html' title='sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+</div><h2 class='fields'>Fields</h2><span id='structfield.code' class='structfield'>
+                           <span id='code.v' class='invisible'>
+                           <code>code: <a class='type' href='../../sciter/types/type.UINT.html' title='type sciter::types::UINT'>UINT</a></code>
+                           </span></span><div class='docblock'><p><code>SC_ATTACH_BEHAVIOR</code> here.</p>
+</div><span id='structfield.hwnd' class='structfield'>
+                           <span id='hwnd.v' class='invisible'>
+                           <code>hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a></code>
+                           </span></span><div class='docblock'><p><code>HWINDOW</code> of the window this callback was attached to.</p>
+</div><span id='structfield.element' class='structfield'>
+                           <span id='element.v' class='invisible'>
+                           <code>element: <a class='type' href='../../sciter/dom/type.HELEMENT.html' title='type sciter::dom::HELEMENT'>HELEMENT</a></code>
+                           </span></span><div class='docblock'><p>[in] target DOM element handle</p>
+</div><span id='structfield.name' class='structfield'>
+                           <span id='name.v' class='invisible'>
+                           <code>name: <a class='type' href='../../sciter/types/type.LPCSTR.html' title='type sciter::types::LPCSTR'>LPCSTR</a></code>
+                           </span></span><div class='docblock'><p>[in] zero terminated string, string appears as value of CSS <code>behavior:</code> attribute.</p>
+</div><span id='structfield.elementProc' class='structfield'>
+                           <span id='elementProc.v' class='invisible'>
+                           <code>elementProc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../sciter/types/type.ElementEventProc.html' title='type sciter::types::ElementEventProc'>ElementEventProc</a></code>
+                           </span></span><div class='docblock'><p>[out] pointer to ElementEventProc function.</p>
+</div><span id='structfield.elementTag' class='structfield'>
+                           <span id='elementTag.v' class='invisible'>
+                           <code>elementTag: <a class='type' href='../../sciter/types/type.LPVOID.html' title='type sciter::types::LPVOID'>LPVOID</a></code>
+                           </span></span><div class='docblock'><p>[out] tag value, passed as is into pointer ElementEventProc function.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='trait core::fmt::Debug'>Debug</a> for <a class='struct' href='../../sciter/host/struct.SCN_ATTACH_BEHAVIOR.html' title='struct sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/capi/scdef.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='struct core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='type core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -93,6 +109,8 @@ having non empty <code>style.behavior</code> attribute value.</p>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -124,11 +142,9 @@ having non empty <code>style.behavior</code> attribute value.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

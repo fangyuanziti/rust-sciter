@@ -9,10 +9,12 @@
 
     <title>sciter::window - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a></p><script>window.sidebarCurrent = {name: 'window', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </nav>
 
@@ -46,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1869' class='srclink' href='../../src/sciter/window.rs.html#1-156' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/sciter/window.rs.html#1-156' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>High level window wrapper.</p>
 
 <p>To create instance of Sciter you will need either to create new Sciter window or to attach (mix-in) Sciter engine to existing window.</p>
@@ -67,7 +69,7 @@ that is a root widget of Sciter window on Linux/GTK.</li>
 <span class='kw'>fn</span> <span class='ident'>main</span>() {
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>frame</span> <span class='op'>=</span> <span class='ident'>sciter</span>::<span class='ident'>Window</span>::<span class='ident'>new</span>();
     <span class='ident'>frame</span>.<span class='ident'>load_file</span>(<span class='string'>&quot;minimal.htm&quot;</span>);
-    <span class='ident'>frame</span>.<span class='ident'>run_app</span>(<span class='boolval'>true</span>);
+    <span class='ident'>frame</span>.<span class='ident'>run_app</span>(<span class='bool-val'>true</span>);
 }</pre>
 
 <p>Also you can register the <a href="../host/trait.HostHandler.html">host</a> and <a href="../dom/event/index.html">DOM</a> event handlers.</p>
@@ -75,24 +77,24 @@ that is a root widget of Sciter window on Linux/GTK.</li>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.Window.html'
-                                  title='sciter::window::Window'>Window</a></td>
-                           <td class='docblock short'>
+                                  title='struct sciter::window::Window'>Window</a></td>
+                           <td class='docblock-short'>
                                 <p>Sciter window.</p>
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.SCITER_CREATE_WINDOW_FLAGS.html'
-                                  title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></td>
-                           <td class='docblock short'>
+                                  title='enum sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></td>
+                           <td class='docblock-short'>
                                 <p>Window flags</p>
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.Flags.html'
-                                  title='sciter::window::Flags'>Flags</a></td>
-                           <td class='docblock short'>
+                                  title='type sciter::window::Flags'>Flags</a></td>
+                           <td class='docblock-short'>
                                 <p><code>SCITER_CREATE_WINDOW_FLAGS</code> alias.</p>
                            </td>
                        </tr></table></section>
@@ -118,6 +120,8 @@ that is a root widget of Sciter window on Linux/GTK.</li>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -149,11 +153,9 @@ that is a root widget of Sciter window on Linux/GTK.</li>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

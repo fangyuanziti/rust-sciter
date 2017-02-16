@@ -9,10 +9,12 @@
 
     <title>sciter::host::Host - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>host</a></p><script>window.sidebarCurrent = {name: 'Host', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -46,43 +48,51 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1993' class='srclink' href='../../src/sciter/host.rs.html#122-125' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Host {
-    // some fields omitted
-}</pre><div class='docblock'><p>Sciter host runtime support.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a></code></h3><div class='impl-items'><h4 id='method.attach' class='method'><code>fn <a href='#method.attach' class='fnname'>attach</a>(hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>) -&gt; <a class='struct' href='../../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a></code></h4>
+               </span><a class='srclink' href='../../src/sciter/host.rs.html#122-125' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Host { /* fields omitted */ }</pre><div class='docblock'><p>Sciter host runtime support.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../sciter/host/struct.Host.html' title='struct sciter::host::Host'>Host</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/sciter/host.rs.html#127-293' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.attach' class='method'><span id='attach.v' class='invisible'><code>fn <a href='#method.attach' class='fnname'>attach</a>(hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a>) -&gt; <a class='struct' href='../../sciter/host/struct.Host.html' title='struct sciter::host::Host'>Host</a></code></span></h4>
 <div class='docblock'><p>Attach Sciter host to existing window.</p>
 
 <p>Usually Sciter window created by <code>sciter::Window::create()</code>, but you can attach Sciter to the existing native window.
 In this case you need to mix-in window events processing with <code>SciterProcND</code>.
 Sciter engine will be initialized either on <code>WM_CREATE</code> or <code>WM_INITDIALOG</code> response
 or by calling <code>SciterCreateOnDirectXWindow</code>.</p>
-</div><h4 id='method.setup_callback' class='method'><code>fn <a href='#method.setup_callback' class='fnname'>setup_callback</a>&lt;T: <a class='trait' href='../../sciter/host/trait.HostHandler.html' title='sciter::host::HostHandler'>HostHandler</a>&gt;(&amp;self, hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>, handler: T)</code></h4>
+</div><h4 id='method.setup_callback' class='method'><span id='setup_callback.v' class='invisible'><code>fn <a href='#method.setup_callback' class='fnname'>setup_callback</a>&lt;T:&nbsp;<a class='trait' href='../../sciter/host/trait.HostHandler.html' title='trait sciter::host::HostHandler'>HostHandler</a>&gt;(&amp;self, hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a>, handler: T)</code></span></h4>
 <div class='docblock'><p>Set callback for Sciter engine events.</p>
-</div><h4 id='method.attach_handler' class='method'><code>fn <a href='#method.attach_handler' class='fnname'>attach_handler</a>&lt;T: <a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>&gt;(&amp;self, handler: T)</code></h4>
+</div><h4 id='method.attach_handler' class='method'><span id='attach_handler.v' class='invisible'><code>fn <a href='#method.attach_handler' class='fnname'>attach_handler</a>&lt;T:&nbsp;<a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='trait sciter::dom::event::EventHandler'>EventHandler</a>&gt;(&amp;self, handler: T)</code></span></h4>
 <div class='docblock'><p>Attach <code>dom::EventHandler</code> to the Sciter window.</p>
-</div><h4 id='method.enable_debug' class='method'><code>fn <a href='#method.enable_debug' class='fnname'>enable_debug</a>(&amp;self, enable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></h4>
+</div><h4 id='method.enable_debug' class='method'><span id='enable_debug.v' class='invisible'><code>fn <a href='#method.enable_debug' class='fnname'>enable_debug</a>(&amp;self, enable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></span></h4>
 <div class='docblock'><p>Set debug mode for specific window or globally.</p>
-</div><h4 id='method.get_hwnd' class='method'><code>fn <a href='#method.get_hwnd' class='fnname'>get_hwnd</a>(&amp;self) -&gt; <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a></code></h4>
+</div><h4 id='method.get_hwnd' class='method'><span id='get_hwnd.v' class='invisible'><code>fn <a href='#method.get_hwnd' class='fnname'>get_hwnd</a>(&amp;self) -&gt; <a class='type' href='../../sciter/types/type.HWINDOW.html' title='type sciter::types::HWINDOW'>HWINDOW</a></code></span></h4>
 <div class='docblock'><p>Get native window handle.</p>
-</div><h4 id='method.get_root' class='method'><code>fn <a href='#method.get_root' class='fnname'>get_root</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+</div><h4 id='method.get_root' class='method'><span id='get_root.v' class='invisible'><code>fn <a href='#method.get_root' class='fnname'>get_root</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='enum core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='struct sciter::dom::Element'>Element</a>&gt;</code></span></h4>
 <div class='docblock'><p>Get window root DOM element.</p>
-</div><h4 id='method.load_file' class='method'><code>fn <a href='#method.load_file' class='fnname'>load_file</a>(&amp;self, uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+</div><h4 id='method.load_file' class='method'><span id='load_file.v' class='invisible'><code>fn <a href='#method.load_file' class='fnname'>load_file</a>(&amp;self, uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></span></h4>
 <div class='docblock'><p>Load HTML document from file.</p>
-</div><h4 id='method.load_html' class='method'><code>fn <a href='#method.load_html' class='fnname'>load_html</a>(&amp;self, html: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, uri: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;)</code></h4>
+</div><h4 id='method.load_html' class='method'><span id='load_html.v' class='invisible'><code>fn <a href='#method.load_html' class='fnname'>load_html</a>(&amp;self, html: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, uri: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='enum core::option::Option'>Option</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;)</code></span></h4>
 <div class='docblock'><p>Load HTML document from memory.</p>
-</div><h4 id='method.data_ready' class='method'><code>fn <a href='#method.data_ready' class='fnname'>data_ready</a>(&amp;self, uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, request_id: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;HREQUEST&gt;)</code></h4>
+</div><h4 id='method.data_ready' class='method'><span id='data_ready.v' class='invisible'><code>fn <a href='#method.data_ready' class='fnname'>data_ready</a>(&amp;self, uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>)</code></span></h4>
 <div class='docblock'><p>This function is used as response to <code>SC_LOAD_DATA</code> request.</p>
-</div><h4 id='method.eval_script' class='method'><code>fn <a href='#method.eval_script' class='fnname'>eval_script</a>(&amp;self, script: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>, <a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>&gt;</code></h4>
+</div><h4 id='method.data_ready_async' class='method'><span id='data_ready_async.v' class='invisible'><code>fn <a href='#method.data_ready_async' class='fnname'>data_ready_async</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request_id: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='enum core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a>_HREQUEST&gt;)</code></span></h4>
+<div class='docblock'><p>Use this function outside of <code>SCN_LOAD_DATA</code> request.</p>
+
+<p>It can be used for the two purposes:</p>
+
+<ol>
+<li>Asynchronious resource loading in respect of <code>SCN_LOAD_DATA</code> requests (you must provide <code>request_id</code> in this case).</li>
+<li>Refresh of already loaded resource (for example, dynamic image updates).</li>
+</ol>
+</div><h4 id='method.eval_script' class='method'><span id='eval_script.v' class='invisible'><code>fn <a href='#method.eval_script' class='fnname'>eval_script</a>(&amp;self, script: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='enum core::result::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='struct sciter::value::Value'>Value</a>, <a class='struct' href='../../sciter/value/struct.Value.html' title='struct sciter::value::Value'>Value</a>&gt;</code></span></h4>
 <div class='docblock'><p>Evaluate script in context of current document.</p>
-</div><h4 id='method.call_function' class='method'><code>fn <a href='#method.call_function' class='fnname'>call_function</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, args: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>, <a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>&gt;</code></h4>
+</div><h4 id='method.call_function' class='method'><span id='call_function.v' class='invisible'><code>fn <a href='#method.call_function' class='fnname'>call_function</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, args: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../sciter/value/struct.Value.html' title='struct sciter::value::Value'>Value</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='enum core::result::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='struct sciter::value::Value'>Value</a>, <a class='struct' href='../../sciter/value/struct.Value.html' title='struct sciter::value::Value'>Value</a>&gt;</code></span></h4>
 <div class='docblock'><p>Call scripting function defined in the global namespace.</p>
 
 <p>This function returns <code>Result&lt;Value,Value&gt;</code> with script function result value or with sciter script error.
 You can use the <code>make_args!(a,b,c)</code> macro which help you construct script arguments from Rust types.</p>
-</div><h4 id='method.set_option' class='method'><code>fn <a href='#method.set_option' class='fnname'>set_option</a>(&amp;self, option: <a class='enum' href='../../sciter/host/enum.SCITER_RT_OPTIONS.html' title='sciter::host::SCITER_RT_OPTIONS'>SCITER_RT_OPTIONS</a>, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.set_option' class='method'><span id='set_option.v' class='invisible'><code>fn <a href='#method.set_option' class='fnname'>set_option</a>(&amp;self, option: <a class='enum' href='../../sciter/host/enum.SCITER_RT_OPTIONS.html' title='enum sciter::host::SCITER_RT_OPTIONS'>SCITER_RT_OPTIONS</a>, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='type sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
 <div class='docblock'><p>Set various sciter engine options, see the <code>SCITER_RT_OPTIONS</code>.</p>
-</div><h4 id='method.set_home_url' class='method'><code>fn <a href='#method.set_home_url' class='fnname'>set_home_url</a>(&amp;self, url: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.set_home_url' class='method'><span id='set_home_url.v' class='invisible'><code>fn <a href='#method.set_home_url' class='fnname'>set_home_url</a>(&amp;self, url: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='type sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
 <div class='docblock'><p>Set home url for sciter resources.</p>
 
 <p>If you will set it like <code>set_home_url(&quot;http://sciter.com/modules/&quot;)</code> then</p>
@@ -91,17 +101,17 @@ You can use the <code>make_args!(a,b,c)</code> macro which help you construct sc
  root-extender.tis from</p>
 
 <p><code>http://sciter.com/modules/lib/root-extender.tis</code>.</p>
-</div><h4 id='method.set_media_type' class='method'><code>fn <a href='#method.set_media_type' class='fnname'>set_media_type</a>(&amp;self, media_type: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.set_media_type' class='method'><span id='set_media_type.v' class='invisible'><code>fn <a href='#method.set_media_type' class='fnname'>set_media_type</a>(&amp;self, media_type: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='type sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
 <div class='docblock'><p>Set media type of this sciter instance.</p>
-</div><h4 id='method.set_media_vars' class='method'><code>fn <a href='#method.set_media_vars' class='fnname'>set_media_vars</a>(&amp;self, media: <a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.set_media_vars' class='method'><span id='set_media_vars.v' class='invisible'><code>fn <a href='#method.set_media_vars' class='fnname'>set_media_vars</a>(&amp;self, media: <a class='struct' href='../../sciter/value/struct.Value.html' title='struct sciter::value::Value'>Value</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='type sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
 <div class='docblock'><p>Set media variables (dictionary) for this sciter instance.</p>
 
 <p>By default sciter window has <code>&quot;screen:true&quot;</code> and <code>&quot;desktop:true&quot;/&quot;handheld:true&quot;</code> media variables.</p>
 
 <p>Media variables can be changed in runtime. This will cause styles of the document to be reset.</p>
-</div><h4 id='method.set_master_css' class='method'><code>fn <a href='#method.set_master_css' class='fnname'>set_master_css</a>(&amp;self, css: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, append: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.set_master_css' class='method'><span id='set_master_css.v' class='invisible'><code>fn <a href='#method.set_master_css' class='fnname'>set_master_css</a>(&amp;self, css: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, append: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='type sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
 <div class='docblock'><p>Set or append the master style sheet styles (globally).</p>
-</div><h4 id='method.set_window_css' class='method'><code>fn <a href='#method.set_window_css' class='fnname'>set_window_css</a>(&amp;self, css: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, base_url: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, media_type: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.set_window_css' class='method'><span id='set_window_css.v' class='invisible'><code>fn <a href='#method.set_window_css' class='fnname'>set_window_css</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; css: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base_url: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; media_type: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../../sciter/host/type.Result.html' title='type sciter::host::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
 <div class='docblock'><p>Set (reset) style sheet of current document.</p>
 </div></div></section>
     <section id='search' class="content hidden"></section>
@@ -126,6 +136,8 @@ You can use the <code>make_args!(a,b,c)</code> macro which help you construct sc
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -157,11 +169,9 @@ You can use the <code>make_args!(a,b,c)</code> macro which help you construct sc
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

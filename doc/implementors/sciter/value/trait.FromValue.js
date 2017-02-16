@@ -1,5 +1,5 @@
 (function() {var implementors = {};
-implementors['sciter'] = [];
+implementors["sciter"] = [];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);

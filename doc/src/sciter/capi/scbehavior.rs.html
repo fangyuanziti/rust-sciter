@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `capi\scbehavior.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\capi\scbehavior.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>scbehavior.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -367,14 +369,17 @@
 <span id="324">324</span>
 <span id="325">325</span>
 <span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! C interface for behaviors support (a.k.a windowless controls).</span>
 
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>non_camel_case_types</span>, <span class='ident'>non_snake_case</span>)]</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
 
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdom</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdom</span>::<span class='kw-2'>*</span>;
 <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scvalue</span>::{<span class='ident'>VALUE</span>};
 
 
@@ -410,7 +415,7 @@
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SCRIPTING_METHOD_PARAMS</span>
 {
 	<span class='kw'>pub</span> <span class='ident'>name</span>: <span class='ident'>LPCSTR</span>,
-	<span class='kw'>pub</span> <span class='ident'>argv</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>VALUE</span>,
+	<span class='kw'>pub</span> <span class='ident'>argv</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>VALUE</span>,
 	<span class='kw'>pub</span> <span class='ident'>argc</span>: <span class='ident'>UINT</span>,
 	<span class='kw'>pub</span> <span class='ident'>result</span>: <span class='ident'>VALUE</span>,
 }
@@ -489,11 +494,12 @@
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>, <span class='ident'>PartialOrd</span>, <span class='ident'>PartialEq</span>)]</span>
 <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_docs</span>)]</span>
 <span class='doccomment'>/// General event source triggers</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>EVENT_REASON</span>
+<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CLICK_REASON</span>
 {
 	<span class='ident'>BY_MOUSE_CLICK</span>,
 	<span class='ident'>BY_KEY_CLICK</span>,
 	<span class='ident'>SYNTHESIZED</span>, <span class='comment'>// synthesized, programmatically generated.</span>
+	<span class='ident'>BY_MOUSE_ON_ICON</span>,
 }
 
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
@@ -510,6 +516,8 @@
 	<span class='ident'>BY_DEL_CHAR</span>,
 	<span class='doccomment'>/// character range deletion (selection).</span>
 	<span class='ident'>BY_DEL_CHARS</span>,
+	<span class='doccomment'>/// undo/redo</span>
+	<span class='ident'>BY_UNDO_REDO</span>
 }
 
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
@@ -689,7 +697,7 @@
 
 <span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>ops</span>::<span class='ident'>BitOr</span> <span class='kw'>for</span> <span class='ident'>EVENT_GROUPS</span> {
   <span class='kw'>type</span> <span class='ident'>Output</span> <span class='op'>=</span> <span class='ident'>EVENT_GROUPS</span>;
-  <span class='kw'>fn</span> <span class='ident'>bitor</span>(<span class='self'>self</span>, <span class='ident'>rhs</span>: <span class='ident'>Self</span>::<span class='ident'>Output</span>) <span class='op'>-&gt;</span> <span class='ident'>Self</span>::<span class='ident'>Output</span> {
+  <span class='kw'>fn</span> <span class='ident'>bitor</span>(<span class='self'>self</span>, <span class='ident'>rhs</span>: <span class='self'>Self</span>::<span class='ident'>Output</span>) <span class='op'>-&gt;</span> <span class='self'>Self</span>::<span class='ident'>Output</span> {
     <span class='kw'>let</span> <span class='ident'>rn</span> <span class='op'>=</span> (<span class='self'>self</span> <span class='kw'>as</span> <span class='ident'>UINT</span>) <span class='op'>|</span> (<span class='ident'>rhs</span> <span class='kw'>as</span> <span class='ident'>UINT</span>);
     <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>rn</span>) }
   }
@@ -718,6 +726,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -749,11 +759,9 @@
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

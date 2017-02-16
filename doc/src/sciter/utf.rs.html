@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `utf.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\utf.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>utf.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -332,10 +334,10 @@
 		<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>b</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
 		<span class='kw'>if</span> (<span class='ident'>b</span> <span class='op'>==</span> <span class='number'>0</span>) { <span class='kw'>break</span>; }
 
-		<span class='kw'>if</span> ((<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x80</span>) <span class='op'>==</span> <span class='number'>0</span>) {
+		<span class='kw'>if</span> ((<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x80</span>) <span class='op'>==</span> <span class='number'>0</span>) {
 			<span class='comment'>// 1-BYTE sequence: 000000000xxxxxxx = 0xxxxxxx</span>
 
-		} <span class='kw'>else</span> <span class='kw'>if</span> ((<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0xE0</span>) <span class='op'>==</span> <span class='number'>0xC0</span>) {
+		} <span class='kw'>else</span> <span class='kw'>if</span> ((<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0xE0</span>) <span class='op'>==</span> <span class='number'>0xC0</span>) {
 			<span class='comment'>// 2-BYTE sequence: 00000yyyyyxxxxxx = 110yyyyy 10xxxxxx</span>
 			<span class='kw'>if</span> (<span class='ident'>pc</span> <span class='op'>==</span> <span class='ident'>last</span>) {
 				<span class='ident'>outbuf</span>.<span class='ident'>push</span>(<span class='ident'>errc</span>);
@@ -343,10 +345,10 @@
 				<span class='kw'>break</span>;
 			}
 
-			<span class='ident'>b</span> <span class='op'>=</span> (<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x1f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>6</span>;
-			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>); <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
+			<span class='ident'>b</span> <span class='op'>=</span> (<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x1f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>6</span>;
+			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>); <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
 
-		} <span class='kw'>else</span> <span class='kw'>if</span> ((<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0xf0</span>) <span class='op'>==</span> <span class='number'>0xe0</span>) {
+		} <span class='kw'>else</span> <span class='kw'>if</span> ((<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0xf0</span>) <span class='op'>==</span> <span class='number'>0xe0</span>) {
 			<span class='comment'>// 3-BYTE sequence: zzzzyyyyyyxxxxxx = 1110zzzz 10yyyyyy 10xxxxxx</span>
 			<span class='kw'>if</span> (<span class='ident'>pc</span> <span class='op'>&gt;=</span> <span class='ident'>last</span> <span class='op'>-</span> <span class='number'>1</span>) {
 				<span class='ident'>outbuf</span>.<span class='ident'>push</span>(<span class='ident'>errc</span>);
@@ -354,33 +356,33 @@
 				<span class='kw'>break</span>;
 			}
 
-			<span class='ident'>b</span> <span class='op'>=</span> (<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x0f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>12</span>;
-			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>6</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
-			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>); <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
+			<span class='ident'>b</span> <span class='op'>=</span> (<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x0f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>12</span>;
+			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>6</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
+			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>); <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
 
 			<span class='kw'>if</span> (<span class='ident'>b</span> <span class='op'>==</span> <span class='number'>0xFEFF</span> <span class='op'>&amp;&amp;</span> <span class='ident'>outbuf</span>.<span class='ident'>len</span>() <span class='op'>==</span> <span class='number'>0</span>) { <span class='comment'>// bom at start</span>
 				<span class='kw'>continue</span>; <span class='comment'>// skip it</span>
 			}
 
-		} <span class='kw'>else</span> <span class='kw'>if</span> ((<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0xf8</span>) <span class='op'>==</span> <span class='number'>0xf0</span>) {
+		} <span class='kw'>else</span> <span class='kw'>if</span> ((<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0xf8</span>) <span class='op'>==</span> <span class='number'>0xf0</span>) {
 			<span class='comment'>// 4-BYTE sequence: 11101110wwwwzzzzyy + 110111yyyyxxxxxx = 11110uuu 10uuzzzz 10yyyyyy 10xxxxxx</span>
 			<span class='kw'>if</span>(<span class='ident'>pc</span> <span class='op'>&gt;=</span> <span class='ident'>last</span> <span class='op'>-</span> <span class='number'>2</span>) { <span class='ident'>outbuf</span>.<span class='ident'>push</span>(<span class='ident'>errc</span>); <span class='kw'>break</span>; }
 
-			<span class='ident'>b</span> <span class='op'>=</span> (<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x07</span>) <span class='op'>&lt;&lt;</span> <span class='number'>18</span>;
-			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>12</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
-			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>6</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
-			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>); <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
+			<span class='ident'>b</span> <span class='op'>=</span> (<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x07</span>) <span class='op'>&lt;&lt;</span> <span class='number'>18</span>;
+			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>12</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
+			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>&lt;&lt;</span> <span class='number'>6</span>; <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
+			<span class='ident'>b</span> <span class='op'>|=</span> (<span class='ident'>utf</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>); <span class='ident'>pc</span> <span class='op'>+=</span> <span class='number'>1</span>;
 
 			<span class='comment'>// b shall contain now full 21-bit unicode code point.</span>
-			<span class='macro'>assert</span><span class='macro'>!</span>((<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x1fffff</span>) <span class='op'>==</span> <span class='ident'>b</span>);
-			<span class='kw'>if</span>((<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x1fffff</span>) <span class='op'>!=</span> <span class='ident'>b</span>) {
+			<span class='macro'>assert</span><span class='macro'>!</span>((<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x1fffff</span>) <span class='op'>==</span> <span class='ident'>b</span>);
+			<span class='kw'>if</span>((<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x1fffff</span>) <span class='op'>!=</span> <span class='ident'>b</span>) {
 				<span class='ident'>outbuf</span>.<span class='ident'>push</span>(<span class='ident'>errc</span>);
 				<span class='ident'>num_errors</span> <span class='op'>+=</span> <span class='number'>1</span>;
 				<span class='kw'>continue</span>;
 			}
 
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>( (<span class='number'>0xd7c0</span> <span class='op'>+</span> (<span class='ident'>b</span> <span class='op'>&gt;&gt;</span> <span class='number'>10</span>)) <span class='kw'>as</span> <span class='ident'>u16</span> );
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>( (<span class='number'>0xdc00</span> <span class='op'>|</span> (<span class='ident'>b</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3ff</span>)) <span class='kw'>as</span> <span class='ident'>u16</span> );
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>( (<span class='number'>0xdc00</span> <span class='op'>|</span> (<span class='ident'>b</span> <span class='op'>&amp;</span> <span class='number'>0x3ff</span>)) <span class='kw'>as</span> <span class='ident'>u16</span> );
 
 		} <span class='kw'>else</span> {
 			<span class='ident'>num_errors</span> <span class='op'>+=</span> <span class='number'>1</span>;
@@ -408,18 +410,18 @@
 
 		} <span class='kw'>else</span> <span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>11</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='op'>|</span> <span class='number'>0xc0</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 
 		} <span class='kw'>else</span> <span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>12</span>) <span class='op'>|</span> <span class='number'>0xe0</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 
 		} <span class='kw'>else</span> <span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>21</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>18</span>) <span class='op'>|</span> <span class='number'>0xf0</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>12</span>) <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>12</span>) <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
+			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 
 		} <span class='kw'>else</span> {
 			<span class='ident'>num_errors</span> <span class='op'>+=</span> <span class='number'>1</span>;
@@ -438,7 +440,7 @@
 	}
 	<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>i</span>: <span class='ident'>isize</span> <span class='op'>=</span> <span class='number'>0</span>;
 	<span class='kw'>loop</span> {
-		<span class='kw'>let</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='op'>*</span><span class='ident'>sz</span>.<span class='ident'>offset</span>(<span class='ident'>i</span>) };
+		<span class='kw'>let</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='kw-2'>*</span><span class='ident'>sz</span>.<span class='ident'>offset</span>(<span class='ident'>i</span>) };
 		<span class='kw'>if</span> <span class='ident'>c</span> <span class='op'>==</span> <span class='number'>0</span> {
 			<span class='kw'>break</span>;
 		}
@@ -520,7 +522,7 @@
 
 	<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::{<span class='ident'>CStr</span>, <span class='ident'>CString</span>};
 	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::{<span class='ident'>LPCWSTR</span>, <span class='ident'>LPCSTR</span>};
-	<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>wcslen</span>, <span class='ident'>u2s</span>, <span class='ident'>w2s</span>, <span class='ident'>s2vec</span>};
+	<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>wcslen</span>, <span class='ident'>u2s</span>, <span class='ident'>w2s</span>, <span class='ident'>s2vec</span>};
 
 	<span class='attribute'>#[<span class='ident'>test</span>]</span>
 	<span class='kw'>fn</span> <span class='ident'>test_wcslen</span>() {
@@ -592,6 +594,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -623,11 +627,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

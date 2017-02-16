@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `capi\scdef.rs`.">
+    <meta name="description" content="Source to the Rust file `D:\usr\dev\sciter\rust-sciter\src\capi\scdef.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>scdef.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
-
     
+
+    <link rel="shortcut icon" href="http://sciter.com/wp-content/themes/sciter/!images/favicon.ico">
     
 </head>
 <body class="rustdoc">
@@ -26,7 +28,7 @@
     
 
     <nav class="sidebar">
-        
+        <a href='../../../sciter/index.html'><img src='http://sciter.com/screenshots/slide-sciter-osx.png' alt='logo' width='100'></a>
         
     </nav>
 
@@ -376,13 +378,25 @@
 <span id="333">333</span>
 <span id="334">334</span>
 <span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
+<span id="342">342</span>
+<span id="343">343</span>
+<span id="344">344</span>
+<span id="345">345</span>
+<span id="346">346</span>
+<span id="347">347</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Common Sciter declarations.</span>
 
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>non_camel_case_types</span>, <span class='ident'>non_snake_case</span>)]</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
 
-<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='kw-2'>*</span>;
 <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scvalue</span>::{<span class='ident'>VALUE</span>};
 <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>screquest</span>::{<span class='ident'>HREQUEST</span>};
 <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdom</span>::{<span class='ident'>HELEMENT</span>};
@@ -430,12 +444,22 @@
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span>
 <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_docs</span>)]</span>
-<span class='doccomment'>/// Explicitly set sciter graphics layer (Windows only).</span>
+<span class='doccomment'>/// Explicitly set sciter graphics layer.</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>GFX_LAYER</span>
 {
+	<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
   <span class='ident'>GFX_LAYER_GDI</span>      <span class='op'>=</span> <span class='number'>1</span>,
+
+  <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>osx</span>)]</span>
+  <span class='ident'>GFX_LAYER_CG</span>       <span class='op'>=</span> <span class='number'>1</span>,
+
+  <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>unix</span>)]</span>
+  <span class='ident'>GFX_LAYER_CAIRO</span>    <span class='op'>=</span> <span class='number'>1</span>,
+
   <span class='ident'>GFX_LAYER_WARP</span>     <span class='op'>=</span> <span class='number'>2</span>,
   <span class='ident'>GFX_LAYER_D2D</span>      <span class='op'>=</span> <span class='number'>3</span>,
+  <span class='ident'>GFX_LAYER_SKIA_CPU</span> <span class='op'>=</span> <span class='number'>4</span>,
+  <span class='ident'>GFX_LAYER_SKIA_OPENGL</span> <span class='op'>=</span> <span class='number'>5</span>,
   <span class='ident'>GFX_LAYER_AUTO</span>     <span class='op'>=</span> <span class='number'>0xFFFF</span>,
 }
 
@@ -545,7 +569,7 @@
 <span class='doccomment'>/// Flags can be OR&#39;ed as `SW_MAIN|SW_ALPHA`.</span>
 <span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>ops</span>::<span class='ident'>BitOr</span> <span class='kw'>for</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span> {
   <span class='kw'>type</span> <span class='ident'>Output</span> <span class='op'>=</span> <span class='ident'>SCITER_CREATE_WINDOW_FLAGS</span>;
-  <span class='kw'>fn</span> <span class='ident'>bitor</span>(<span class='self'>self</span>, <span class='ident'>rhs</span>: <span class='ident'>Self</span>::<span class='ident'>Output</span>) <span class='op'>-&gt;</span> <span class='ident'>Self</span>::<span class='ident'>Output</span> {
+  <span class='kw'>fn</span> <span class='ident'>bitor</span>(<span class='self'>self</span>, <span class='ident'>rhs</span>: <span class='self'>Self</span>::<span class='ident'>Output</span>) <span class='op'>-&gt;</span> <span class='self'>Self</span>::<span class='ident'>Output</span> {
     <span class='kw'>let</span> <span class='ident'>rn</span> <span class='op'>=</span> (<span class='self'>self</span> <span class='kw'>as</span> <span class='ident'>UINT</span>) <span class='op'>|</span> (<span class='ident'>rhs</span> <span class='kw'>as</span> <span class='ident'>UINT</span>);
     <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>rn</span>) }
   }
@@ -648,7 +672,7 @@
   <span class='doccomment'>/// [in] zero terminated string, string appears as value of CSS `behavior: ` attribute.</span>
   <span class='kw'>pub</span> <span class='ident'>name</span>: <span class='ident'>LPCSTR</span>,
   <span class='doccomment'>/// [out] pointer to ElementEventProc function.</span>
-  <span class='kw'>pub</span> <span class='ident'>elementProc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ElementEventProc</span>,
+  <span class='kw'>pub</span> <span class='ident'>elementProc</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>ElementEventProc</span>,
   <span class='doccomment'>/// [out] tag value, passed as is into pointer ElementEventProc function.</span>
   <span class='kw'>pub</span> <span class='ident'>elementTag</span>: <span class='ident'>LPVOID</span>,
 }
@@ -660,7 +684,7 @@
 	<span class='kw'>pub</span> <span class='ident'>code</span>: <span class='ident'>UINT</span>,
 	<span class='kw'>pub</span> <span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span>,
 }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCITER_CALLBACK_NOTIFICATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCITER_CALLBACK_NOTIFICATION</span> <span class='op'>=</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>;
 
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SciterHostCallback</span> <span class='op'>=</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> (<span class='ident'>pns</span>: <span class='ident'>LPSCITER_CALLBACK_NOTIFICATION</span>, <span class='ident'>callbackParam</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
 
@@ -700,6 +724,8 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCSTR_RECEIVER</span>  <span class='op'>=</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> (<span class='ident'>szstr</span>: <span class='ident'>LPCSTR</span>,  <span class='ident'>str_length</span>: <span class='ident'>UINT</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCBYTE_RECEIVER</span> <span class='op'>=</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> (<span class='ident'>szstr</span>: <span class='ident'>LPCBYTE</span>, <span class='ident'>str_length</span>: <span class='ident'>UINT</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>);
 
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>ELEMENT_BITMAP_RECEIVER</span> <span class='op'>=</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> (<span class='ident'>rgba</span>: <span class='ident'>LPCBYTE</span>, <span class='ident'>x</span>: <span class='ident'>INT</span>, <span class='ident'>y</span>: <span class='ident'>INT</span>, <span class='ident'>width</span>: <span class='ident'>UINT</span>, <span class='ident'>height</span>: <span class='ident'>UINT</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>);
+
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>METHOD_PARAMS</span> {
 	<span class='ident'>methodID</span>: <span class='ident'>UINT</span>,
@@ -711,7 +737,7 @@
   <span class='ident'>value</span>: <span class='ident'>LPCWSTR</span>,
 }
 
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>KeyValueCallback</span> <span class='op'>=</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> (<span class='ident'>param</span>: <span class='ident'>LPVOID</span>, <span class='ident'>pkey</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>VALUE</span>, <span class='ident'>pval</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>VALUE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>KeyValueCallback</span> <span class='op'>=</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> (<span class='ident'>param</span>: <span class='ident'>LPVOID</span>, <span class='ident'>pkey</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>VALUE</span>, <span class='ident'>pval</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>VALUE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -736,6 +762,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -767,11 +795,9 @@
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "sciter";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>
