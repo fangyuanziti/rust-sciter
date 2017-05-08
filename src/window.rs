@@ -33,7 +33,8 @@ use host::{Host, HostHandler};
 use dom::event::{EventHandler};
 use eventhandler::*;
 
-use std::rc::Rc;
+use std::sync::Arc;
+
 
 /// `SCITER_CREATE_WINDOW_FLAGS` alias.
 pub type Flags = SCITER_CREATE_WINDOW_FLAGS;
@@ -44,7 +45,7 @@ pub use capi::scdef::{SCITER_CREATE_WINDOW_FLAGS};
 pub struct Window
 {
 	base: OsWindow,
-	host: Rc<Host>,
+	host: Arc<Host>,
 }
 
 impl Window {
@@ -72,18 +73,18 @@ impl Window {
 		let hwnd = base.create(rect, flags as UINT, parent.unwrap_or(0 as HWINDOW));
 		assert!(!hwnd.is_null());
 
-		let wnd = Window { base: base, host: Rc::new(Host::attach(hwnd))};
+		let wnd = Window { base: base, host: Arc::new(Host::attach(hwnd))};
 		return wnd;
 	}
 
 	/// Attach Sciter to existing native window.
 	pub fn attach(hwnd: HWINDOW) -> Window {
 		assert!( hwnd.is_null() == false );
-		Window { base: OsWindow::from(hwnd), host: Rc::new(Host::attach(hwnd)) }
+		Window { base: OsWindow::from(hwnd), host: Arc::new(Host::attach(hwnd)) }
 	}
 
 	/// Obtain reference to `Host` which allows you to control sciter engine and windows.
-	pub fn get_host(&self) -> Rc<Host> {
+	pub fn get_host(&self) -> Arc<Host> {
 		self.host.clone()
 	}
 

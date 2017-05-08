@@ -6,7 +6,7 @@ extern crate sciter;
 
 use sciter::host::{self, HostHandler};
 use sciter::utf;
-use std::rc::{Rc, Weak};
+use std::sync::{Arc, Weak};
 
 // struct Handler;
 
@@ -51,7 +51,7 @@ impl Drop for Handler {
 fn main() {
 	use sciter::window;
 	let mut frame = window::Window::with_size((1024,768), window::Flags::main_window(true));
-	let handler = Handler { host: Rc::downgrade(&frame.get_host()) };
+	let handler = Handler { host: Arc::downgrade(&frame.get_host()) };
 	frame.sciter_handler(handler);
 	frame.set_title("Download sample");
 	frame.load_file("http://httpbin.org/html");
